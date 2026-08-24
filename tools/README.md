@@ -11,5 +11,5 @@ HTML page, screenshotted at that exact size. To regenerate it after an edit:
   "file://$PWD/tools/og-image.html"
 ```
 
-Any headless browser does the job. The image is a placeholder, waiting for a
-proper one.
+Any headless browser does the job. The image is the title, in the marker face, in the
+accent green on the page background. Nothing else.

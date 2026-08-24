@@ -1,7 +1,6 @@
 ---
-// One line above the title: the language question on the left, the two
-// languages on the right. No rule under it, the title carries the top of the
-// page on its own.
+// One line above the title: the language question on the left, the menu on the
+// right, and a hairline under both to close the block.
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
@@ -26,6 +25,8 @@ const { locale, prompt, switcherLabel } = Astro.props;
     justify-content: space-between;
     gap: 0.25rem 1rem;
     margin-top: 2rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--rule);
     font-size: 0.9375rem;
     color: var(--muted);
   }

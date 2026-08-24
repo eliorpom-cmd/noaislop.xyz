@@ -23,8 +23,6 @@ const isCanonicalPage = locale === DEFAULT_LOCALE;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{copy.meta.title}</title>
     <meta name="description" content={copy.meta.description} />
-    <!-- Not indexed yet. Drop this line and public/robots.txt to launch. -->
-    <meta name="robots" content="noindex, nofollow" />
     <link rel="canonical" href={canonical} />
 
     <link

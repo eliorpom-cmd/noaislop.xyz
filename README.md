@@ -105,12 +105,6 @@ someone who came back to English on purpose. Clicking the language switcher
 writes the same key. Storage blocked or JavaScript off: everyone stays on
 English, which is the correct fallback.
 
-## Not indexed yet
-
-The page carries `<meta name="robots" content="noindex, nofollow">` and
-`public/robots.txt` disallows everything. Delete the meta tag in
-`src/layouts/BaseLayout.astro` and the robots file to open it to search engines.
-
 ## Deploy
 
 `npm run build` produces a fully static `dist/`. Drop it on anything: Netlify,

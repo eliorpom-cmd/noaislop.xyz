@@ -9,7 +9,7 @@ import Definition from './Definition.astro';
 import EmphasisBox from './EmphasisBox.astro';
 import Footer from './Footer.astro';
 import Hero from './Hero.astro';
-import SlopList from './SlopList.astro';
+import PromptList from './PromptList.astro';
 import Standards from './Standards.astro';
 import TestList from './TestList.astro';
 import TopBanner from './TopBanner.astro';
@@ -46,14 +46,20 @@ const copy = getCopy(locale);
 
     <section class="section" aria-labelledby="dont">
       <h2 class="section-title" id="dont">{copy.dont.sectionTitle}</h2>
-      <SlopList prompts={copy.dont.prompts} stamp={copy.dont.stamp} />
-      <p class="dont__lede"><Copy text={copy.dont.lede} /></p>
+      <p><Copy text={copy.dont.intro} /></p>
+      <PromptList prompts={copy.dont.prompts} stamp={copy.dont.stamp} />
+      <p><Copy text={copy.dont.lede} /></p>
       {copy.dont.body.map((paragraph) => <p><Copy text={paragraph} /></p>)}
     </section>
 
     <section class="section" aria-labelledby="standards">
       <h2 class="section-title" id="standards">{copy.standards.sectionTitle}</h2>
       {copy.standards.body.map((paragraph) => <p><Copy text={paragraph} /></p>)}
+      <PromptList
+        prompts={[copy.standards.example.prompt]}
+        stamp={copy.standards.example.stamp}
+        tone="fine"
+      />
       <Standards blocks={copy.standards.blocks} />
     </section>
 
@@ -76,15 +82,7 @@ const copy = getCopy(locale);
     </section>
   </main>
 
-  <Footer lines={copy.footer.lines} />
+  <Footer lines={copy.footer.lines} note={copy.footer.note} />
 </BaseLayout>
 
-<style>
-  .dont__lede {
-    margin-top: 1.75rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-    letter-spacing: -0.015em;
-    color: var(--ink);
-  }
-</style>
+

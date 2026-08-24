@@ -3,9 +3,10 @@ import Copy from './Copy.astro';
 
 interface Props {
   lines: string[];
+  note: string;
 }
 
-const { lines } = Astro.props;
+const { lines, note } = Astro.props;
 ---
 
 <footer class="footer">
@@ -17,6 +18,7 @@ const { lines } = Astro.props;
         </p>
       ))
     }
+    <p class="footer__note"><Copy text={note} /></p>
   </div>
 </footer>
 
@@ -39,6 +41,10 @@ const { lines } = Astro.props;
 
   .footer p + p {
     margin-top: 0.25rem;
+  }
+
+  .footer__note {
+    margin-top: 1.5rem;
   }
 
   .footer :global(a) {

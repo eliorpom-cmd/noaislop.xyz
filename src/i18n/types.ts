@@ -36,6 +36,7 @@ export interface Copy {
   };
   dont: {
     sectionTitle: string;
+    intro: string;
     /** The word stamped at the end of every line. */
     stamp: string;
     /** One line prompts, the kind that goes straight to publish. */
@@ -47,6 +48,11 @@ export interface Copy {
   standards: {
     sectionTitle: string;
     body: string[];
+    /** The same line, written by someone who made decisions. */
+    example: {
+      prompt: string;
+      stamp: string;
+    };
     blocks: RunIn[];
   };
   test: {
@@ -64,6 +70,7 @@ export interface Copy {
   };
   footer: {
     lines: string[];
+    note: string;
   };
   languageSwitcher: {
     /** Accessible name of the select. */

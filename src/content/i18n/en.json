@@ -8,7 +8,7 @@
     "description": "A page to send to someone who just published AI slop. Not about AI. About effort.",
     "ogTitle": "your AI slop sucks.",
     "ogDescription": "Someone sent you this link. There’s a reason.",
-    "ogImageAlt": "The word SLOP stamped over the title of the page."
+    "ogImageAlt": "The words “your AI slop sucks.” in green marker on an off-white background."
   },
   "hero": {
     "h1": "your AI slop sucks.",
@@ -21,35 +21,40 @@
     "text": "Low-quality digital content, usually produced in quantity using artificial intelligence.",
     "source": "Merriam-Webster, Word of the Year 2025",
     "body": [
-      "Not all AI content is slop. It becomes slop when **nobody thought about it** and it gets pushed on people who never asked."
+      "Not all AI content is slop. It becomes slop when nobody put any of themselves in it and it gets pushed on people who never asked."
     ]
   },
   "dont": {
     "sectionTitle": "Don’t do this",
+    "intro": "It’s not the tool. It’s how you use it.",
     "stamp": "SLOP",
     "prompts": [
       "make me a flyer for my event",
       "write me a motivational LinkedIn post about morning coffee",
-      "generate me a video of a cat saying “have a good day”"
+      "generate me a video of a cat saying have a good day"
     ],
-    "lede": "You saved 10 minutes. **Everyone else pays for them.**",
+    "lede": "Ok you saved 3 minutes… but everyone who’ll see the result will suffer for it.",
     "body": [
-      "Every slop post buries something a person actually made. And once people spot slop in your work, they read everything you publish differently. Including the good stuff."
+      "Every slop post buries something a person actually made. And once people spot slop in your work, they read everything you publish differently, including the good stuff."
     ]
   },
   "standards": {
     "sectionTitle": "Do this instead",
     "body": [
-      "Use AI to draft, to speed up the boring parts, to test an idea. Fine. **Just put something of yours in what you publish.**"
+      "Use AI to draft, to speed up the boring parts, to test an idea. Just put something of yours in what you publish."
     ],
+    "example": {
+      "stamp": "FINE",
+      "prompt": "vertical flyer. Photo I shot (attached) of last year’s venue as background, desaturated. Big condensed orange title, sans serif font, left-aligned, bottom third. Date and address in one line under the title."
+    },
     "blocks": [
       {
         "title": "Writing:",
-        "text": "Your idea. Reread, rewritten, tells removed. You can defend every claim in it."
+        "text": "The idea is yours. Reread, rewritten, AI language tics removed. You can defend every claim in the text."
       },
       {
         "title": "Images:",
-        "text": "A real brief, references, a named style. Not one line and the first output."
+        "text": "A real brief, references, a precise style. Not one line and the first generic output."
       },
       {
         "title": "Video:",
@@ -58,13 +63,13 @@
     ]
   },
   "test": {
-    "sectionTitle": "The test",
+    "sectionTitle": "Think before you post",
     "items": [
       "Did you read all of it?",
       "Could you defend it?",
-      "Would you still publish it if you had to make it by hand?"
+      "Is it free from that obvious AI look?"
     ],
-    "outro": "**Three yes. Publish. Otherwise it’s slop.**"
+    "outro": "Three yes: publish. Otherwise it’s slop."
   },
   "emphasis": "If you don’t put any of yourself into what you post, why should we bother reading it?",
   "share": {
@@ -78,8 +83,9 @@
     "lines": [
       "Spiritual cousin of [nohello.net](https://nohello.net), [dontasktoask.com](https://dontasktoask.com) and [dontpastetheai.com](https://dontpastetheai.com).",
       "Written by a human, reviewed by a human, defended by a human.",
-      "PRs and translations welcome on [GitHub](https://github.com/eliorpom-cmd/noaislop.xyz). Public domain."
-    ]
+      "PRs and translations welcome on [GitHub](https://github.com/eliorpom-cmd/noaislop.xyz)."
+    ],
+    "note": "Nobody’s saying you can’t create. We’d just like to see what **you** would have made."
   },
   "languageSwitcher": {
     "prompt": "Prefer another language?",
