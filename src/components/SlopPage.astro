@@ -1,6 +1,8 @@
 ---
 // The whole page, shared by every locale route. Everything it renders comes
 // from src/content/i18n/{locale}.json, never from hardcoded strings.
+// The layout follows nohello.net: 1100px container, a tall hero, then rows of
+// section title on the left and content on the right.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Copy from './Copy.astro';
 import CopyLink from './CopyLink.astro';
@@ -24,14 +26,16 @@ const copy = getCopy(locale);
 ---
 
 <BaseLayout locale={locale}>
-  <TopBanner text={copy.banner} locale={locale} switcherLabel={copy.languageSwitcher.label} />
+  <TopBanner locale={locale} switcherLabel={copy.languageSwitcher.label} />
 
-  <main>
-    <div class="wrap">
-      <Hero title={copy.hero.h1} subtitle={copy.hero.subtitle} />
+  <main class="container">
+    <Hero title={copy.hero.h1} subtitle={copy.hero.subtitle} lead={copy.banner} />
 
-      <section class="section" aria-labelledby="definition">
+    <section class="row" aria-labelledby="definition">
+      <div class="col col--left">
         <h2 class="section-title" id="definition">{copy.definition.sectionTitle}</h2>
+      </div>
+      <div class="col col--right">
         <DefinitionCard
           word={copy.definition.word}
           partOfSpeech={copy.definition.partOfSpeech}
@@ -39,41 +43,66 @@ const copy = getCopy(locale);
           source={copy.definition.source}
         />
         {copy.definition.body.map((paragraph) => <p><Copy text={paragraph} /></p>)}
-      </section>
+      </div>
+    </section>
 
-      <section class="section" aria-labelledby="dont">
+    <section class="row" aria-labelledby="dont">
+      <div class="col col--left">
         <h2 class="section-title" id="dont">{copy.dont.sectionTitle}</h2>
+        <p class="caption"><Copy text={copy.dont.caption} /></p>
+      </div>
+      <div class="col col--right">
         {
           copy.dont.cards.map((card, index) => (
-            <PromptCard card={card} stamp={copy.dont.stamp} index={index} />
+            <PromptCard
+              card={card}
+              stamp={copy.dont.stamp}
+              chrome={copy.dont.chrome}
+              index={index}
+            />
           ))
         }
-        <p class="caption"><Copy text={copy.dont.caption} /></p>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" aria-labelledby="cost">
+    <section class="row" aria-labelledby="cost">
+      <div class="col col--left">
         <h2 class="section-title" id="cost">{copy.cost.sectionTitle}</h2>
+      </div>
+      <div class="col col--right">
         <p><Copy text={copy.cost.lede} /></p>
         <CostList items={copy.cost.items} />
-      </section>
+      </div>
+    </section>
 
-      <section class="section" aria-labelledby="standards">
+    <section class="row" aria-labelledby="standards">
+      <div class="col col--left">
         <h2 class="section-title" id="standards">{copy.standards.sectionTitle}</h2>
+      </div>
+      <div class="col col--right">
         {copy.standards.body.map((paragraph) => <p><Copy text={paragraph} /></p>)}
         <Standards blocks={copy.standards.blocks} />
-      </section>
+      </div>
+    </section>
 
-      <EmphasisBox quote={copy.emphasis} />
+    <EmphasisBox quote={copy.emphasis} />
 
-      <section class="section" aria-labelledby="test">
+    <section class="row" aria-labelledby="test">
+      <div class="col col--left">
         <h2 class="section-title" id="test">{copy.test.sectionTitle}</h2>
+      </div>
+      <div class="col col--right">
         <p>{copy.test.intro}</p>
         <TestList items={copy.test.items} />
         <p><Copy text={copy.test.outro} /></p>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" aria-labelledby="share">
+    <section class="row" aria-labelledby="share">
+      <div class="col col--left">
         <h2 class="section-title" id="share">{copy.share.sectionTitle}</h2>
+      </div>
+      <div class="col col--right">
         <p><Copy text={copy.share.body} /></p>
         <CopyLink
           domain={copy.share.domain}
@@ -81,8 +110,8 @@ const copy = getCopy(locale);
           copied={copy.share.copied}
           copyLabel={copy.share.copyLabel}
         />
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
 
   <Footer lines={copy.footer.lines} note={copy.footer.note} />
@@ -90,6 +119,13 @@ const copy = getCopy(locale);
 
 <style>
   .caption {
-    margin-block-start: 1.25rem;
+    margin-top: 15px;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--muted);
+  }
+
+  .col--right > :global(.card:first-child) {
+    margin-top: 0;
   }
 </style>

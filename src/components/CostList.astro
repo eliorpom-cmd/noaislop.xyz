@@ -23,9 +23,18 @@ const { items } = Astro.props;
 </dl>
 
 <style>
+  .costs {
+    margin-top: 22px;
+  }
+
   /* Run-in headings: the bold bit starts the sentence and carries the point. */
+  .costs__item {
+    line-height: 31px;
+    color: var(--text);
+  }
+
   .costs__item + .costs__item {
-    margin-block-start: 0.8rem;
+    margin-top: 16px;
   }
 
   dt,

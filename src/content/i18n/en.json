@@ -29,6 +29,10 @@
   "dont": {
     "sectionTitle": "Don’t do this",
     "stamp": "SLOP",
+    "chrome": {
+      "assistant": "Assistant",
+      "composer": "Message the assistant"
+    },
     "cards": [
       {
         "prompt": "make me a flyer for my event",

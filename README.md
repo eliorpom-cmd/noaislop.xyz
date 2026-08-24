@@ -17,12 +17,21 @@ attention. The page is about effort.
 only JavaScript shipped to the browser is a clipboard button, a language
 preference, and a one-time redirect on the canonical page.
 
+The layout, type scale and colours follow nohello.net closely: Lato, a 1100px
+container, a 94px hero, two columns at 40/59, cards with a soft double shadow,
+a footer that fades into grey. Three of its values were darkened to clear WCAG
+AA, and each one says so in a comment in `src/styles/global.css`.
+
 Two typefaces, both self-hosted from `public/fonts/`, so the page calls no third
-party at all: [Inter](https://rsms.me/inter/) for everything, and
+party at all: [Lato](https://fonts.google.com/specimen/Lato) at 300, 400 and 700
+for everything, and
 [Rubik Wet Paint](https://fonts.google.com/specimen/Rubik+Wet+Paint), subset to
 the alphabet, for the dripping SLOP stamp. Both are under the SIL Open Font
-License, included next to the files. The `latin-ext` slice of Inter only
-downloads for languages that need it.
+License, included next to the files. The `latin-ext` slices only download for
+languages that need them.
+
+The chat cards are a generic assistant interface: no product name, no logo, no
+brand colours. It should read as "an AI chatbot", not as a specific one.
 
 ## Run it locally
 

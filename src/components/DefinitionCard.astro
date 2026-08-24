@@ -9,7 +9,7 @@ interface Props {
 const { word, partOfSpeech, text, source } = Astro.props;
 ---
 
-<figure class="entry">
+<figure class="card entry">
   <dl>
     <dt>
       <b class="entry__word">{word}</b>
@@ -17,38 +17,45 @@ const { word, partOfSpeech, text, source } = Astro.props;
     </dt>
     <dd>{text}</dd>
   </dl>
-  <figcaption class="entry__source small">{source}</figcaption>
+  <figcaption class="entry__source">{source}</figcaption>
 </figure>
 
 <style>
   .entry {
-    padding-inline-start: 1rem;
-    border-inline-start: 3px solid var(--slop);
+    margin-top: 0;
   }
 
   dt {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.4rem;
-    font-size: 1.125rem;
+    gap: 7px;
+    margin-bottom: 8px;
   }
 
   .entry__word {
+    font-size: 20px;
     font-weight: 700;
+    color: var(--card-title);
   }
 
   .entry__pos {
     font-style: normal;
-    color: var(--ink-faint);
-    font-size: 0.9375rem;
+    font-size: 16px;
+    color: var(--muted);
   }
 
   dd {
-    margin-block-start: 0.15rem;
+    margin: 0;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--text);
   }
 
   .entry__source {
-    margin-block-start: 0.5rem;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
   }
 </style>

@@ -21,10 +21,28 @@ const { items } = Astro.props;
 
 <style>
   .test {
-    padding-inline-start: 1.35rem;
+    margin: 18px 0 16px 20px;
+    padding: 0;
+    list-style: none;
+    counter-reset: test;
+    font-size: 18px;
+    line-height: 24px;
+    color: var(--muted);
   }
 
-  li + li {
-    margin-block-start: 0.4rem;
+  li {
+    counter-increment: test;
+    margin-bottom: 10px;
+  }
+
+  li::before {
+    content: counter(test) ".";
+    padding-right: 10px;
+    font-weight: 700;
+    color: var(--card-title);
+  }
+
+  li strong {
+    color: var(--text);
   }
 </style>

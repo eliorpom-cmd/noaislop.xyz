@@ -1,18 +1,20 @@
 ---
+// The one discreet line at the top: site name on the left, languages on the
+// right. The "someone sent you this link" sentence lives in the hero now, as
+// the lead paragraph.
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import { localePath } from '../i18n/utils';
 
 interface Props {
-  text: string;
   locale: string;
   switcherLabel: string;
 }
 
-const { text, locale, switcherLabel } = Astro.props;
+const { locale, switcherLabel } = Astro.props;
 ---
 
 <header class="masthead">
-  <div class="wrap masthead__inner">
+  <div class="masthead__inner">
     <a class="masthead__name" href={localePath(locale)}>
       <span class="masthead__mark" aria-hidden="true">🤮</span>noaislop.xyz
     </a>
@@ -20,13 +22,9 @@ const { text, locale, switcherLabel } = Astro.props;
   </div>
 </header>
 
-<p class="notice">
-  <span class="wrap">{text}</span>
-</p>
-
 <style>
   .masthead {
-    border-block-end: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
   }
 
   .masthead__inner {
@@ -34,34 +32,27 @@ const { text, locale, switcherLabel } = Astro.props;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem 1rem;
-    padding-block: 0.7rem;
+    gap: 8px 16px;
+    max-width: 1100px;
+    margin-inline: auto;
+    padding: 14px 15px;
   }
 
   .masthead__name {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    font-size: 0.9375rem;
+    gap: 7px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--ink);
-    text-decoration: none;
   }
 
   .masthead__name:hover {
     color: var(--ink);
-    text-decoration: underline;
   }
 
   .masthead__mark {
-    font-size: 1.0625rem;
+    font-size: 18px;
     line-height: 1;
-  }
-
-  .notice .wrap {
-    display: block;
-    padding-block: 0.9rem 0;
-    font-size: 0.875rem;
-    color: var(--ink-faint);
   }
 </style>

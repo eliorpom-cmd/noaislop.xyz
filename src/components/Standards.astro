@@ -14,7 +14,7 @@ const { blocks } = Astro.props;
     blocks.map((block) => (
       <section class="standards__block">
         <h3>{block.title}</h3>
-        <ul>
+        <ul class="marks marks--yes">
           {block.items.map((item) => (
             <li>
               <Copy text={item} />
@@ -27,21 +27,19 @@ const { blocks } = Astro.props;
 </div>
 
 <style>
+  .standards {
+    margin-top: 26px;
+  }
+
   .standards__block + .standards__block {
-    margin-block-start: 1.4rem;
+    margin-top: 28px;
   }
 
   h3 {
-    font-size: 1.0625rem;
+    margin-bottom: 10px;
+    font-size: 20px;
     font-weight: 700;
-  }
-
-  ul {
-    margin-block-start: 0.4rem;
-    padding-inline-start: 1.15rem;
-  }
-
-  li + li {
-    margin-block-start: 0.3rem;
+    line-height: 26px;
+    color: var(--card-title);
   }
 </style>

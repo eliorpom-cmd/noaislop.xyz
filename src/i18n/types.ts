@@ -58,6 +58,11 @@ export interface Copy {
   dont: {
     sectionTitle: string;
     stamp: string;
+    /** The two labels on the reconstructed assistant interface. */
+    chrome: {
+      assistant: string;
+      composer: string;
+    };
     cards: PromptCard[];
     caption: string;
   };

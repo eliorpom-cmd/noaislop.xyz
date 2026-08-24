@@ -29,6 +29,10 @@
   "dont": {
     "sectionTitle": "Ne fais pas ça",
     "stamp": "SLOP",
+    "chrome": {
+      "assistant": "Assistant",
+      "composer": "Écris à l’assistant"
+    },
     "cards": [
       {
         "prompt": "crée-moi un flyer pour mon événement",

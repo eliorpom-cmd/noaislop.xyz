@@ -27,56 +27,53 @@ const { domain, hint, copied, copyLabel } = Astro.props;
 
 <style>
   .copy {
-    margin-block-start: 1.25rem;
+    margin-top: 24px;
   }
 
   .copy__button {
     display: block;
     width: 100%;
-    padding: 0.9rem 1rem;
-    border: 1px solid var(--rule);
-    background: var(--paper);
+    padding: 22px 20px;
+    border: 0;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: -20px 20px 60px #d9d9d9, 20px -20px 60px #fff;
     color: inherit;
     font: inherit;
     text-align: center;
     cursor: pointer;
   }
 
-  .copy__button:hover {
-    background: var(--link-wash);
-    border-color: var(--link);
-  }
-
   .copy__domain {
     display: block;
-    font-family: var(--font-mono);
-    font-size: 1.625rem;
+    font-size: 34px;
     font-weight: 700;
-    letter-spacing: -0.03em;
+    line-height: 1.1;
     color: var(--ink);
     overflow-wrap: anywhere;
   }
 
   .copy__hint {
     display: block;
-    margin-block-start: 0.3rem;
-    font-size: 0.8125rem;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 300;
     color: var(--link);
   }
 
-  .copy__button.is-copied {
-    border-color: var(--slop-mid);
-    background: var(--paper);
+  .copy__button:hover .copy__hint {
+    text-decoration: underline;
   }
 
   .copy__button.is-copied .copy__hint {
     color: var(--slop-deep);
     font-weight: 700;
+    text-decoration: none;
   }
 
-  @media (max-width: 30rem) {
+  @media (max-width: 425px) {
     .copy__domain {
-      font-size: 1.3125rem;
+      font-size: 24px;
     }
   }
 </style>

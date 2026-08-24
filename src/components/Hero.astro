@@ -2,33 +2,14 @@
 interface Props {
   title: string;
   subtitle: string;
+  lead: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, lead } = Astro.props;
 ---
 
 <div class="hero">
-  <h1 class="hero__title">{title}</h1>
-  <p class="hero__subtitle">{subtitle}</p>
+  <h1 class="name">{title}</h1>
+  <span class="subtitle">{subtitle}</span>
+  <p class="lead">{lead}</p>
 </div>
-
-<style>
-  .hero__title {
-    font-size: clamp(2.25rem, 1rem + 7vw, 3rem);
-    line-height: 0.95;
-    letter-spacing: -0.04em;
-    font-weight: 800;
-  }
-
-  .hero__subtitle {
-    margin-block-start: 0.6rem;
-    font-size: 1.125rem;
-    color: var(--ink-soft);
-  }
-
-  @media (max-width: 30rem) {
-    .hero__subtitle {
-      font-size: 1.125rem;
-    }
-  }
-</style>
