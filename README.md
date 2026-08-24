@@ -5,18 +5,18 @@ A single page you send to someone who just published AI slop.
 Same family as [nohello.net](https://nohello.net),
 [dontasktoask.com](https://dontasktoask.com) and
 [dontpastetheai.com](https://dontpastetheai.com): one page, no account, no
-tracker, no cookie.
+cookie, nothing to sign up for.
 
 It asks one thing of the reader: put something of your own in what you publish.
 
 ## Stack
 
 [Astro](https://astro.build) in static mode, TypeScript, no UI framework. The
-only JavaScript in the browser is the copy button, the language menu and a
-one-time redirect on the canonical page.
+only JavaScript in the browser is the copy button, the language menu, a
+one-time redirect on the canonical page, and the analytics script below.
 
-Three typefaces, all served from `public/fonts/`, so the page calls no third
-party:
+Three typefaces, all served from `public/fonts/`, so no font request leaves the
+site:
 
 - **Nimbus Sans L**, shipped as [TeX Gyre Heros](https://www.gust.org.pl/projects/e-foundry/tex-gyre/heros),
   for every word of text. GUST Font License.
@@ -66,6 +66,15 @@ The only markup allowed inside the copy is `**bold**` and
 `[label](https://url)`, rendered by `src/components/Copy.astro`. Nothing from a
 locale file is ever injected as raw HTML, so a translation pull request cannot
 smuggle markup into the page.
+
+## Analytics
+
+The page loads [Umami](https://umami.is) Cloud, which counts page views and
+referrers. No cookie, no fingerprint, no personal data, nothing to consent to.
+It is the one third-party request the page makes.
+
+The tag lives in `src/layouts/BaseLayout.astro`. Delete those four lines and the
+site measures nothing at all.
 
 ## How languages resolve
 
