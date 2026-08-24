@@ -12,8 +12,10 @@ send is released under [CC0](LICENSE) too.
    with the name of the language written in that language ("Deutsch", not
    "German"). Set `meta.ogLocale` too: `de_DE`, `es_ES`.
 3. **Translate every value.** Keep every key, keep the structure. Do not
-   translate the keys. `dont.cards[].reply` is the fake blurred answer, it is
-   hidden from screen readers, translate it loosely or not at all. Leave
+   translate the keys. Text between double asterisks is bold: `**like this**`.
+   Move the asterisks to whatever carries the point in your language, that is
+   the only markup there is. `dont.cards[].reply` is the fake blurred answer, it
+   is hidden from screen readers, translate it loosely or not at all. Leave
    `dont.cards[].kind` alone, it picks the blurred reply: text, image or video.
    Never translate `share.domain`.
 4. **Run `npm run check` and `npm run build`.** A missing key, or a `meta.lang`
@@ -33,6 +35,9 @@ to hold that line.
 - Translate the argument, not the words. Idioms and examples should land in your
   language, even if that means changing them. A "LinkedIn post about morning
   coffee" should be whatever your language's version of that is.
+- Short. The English page is deliberately brief, a reader who was just sent
+  this link will not read three screens. If your translation is much longer than
+  the English, cut it.
 - Second person, plain words, short sentences. The reader just got sent this
   link by someone. Be direct, do not lecture, do not moralize.
 - Keep `hero.h1` in English. "your AI slop sucks." is the title of the site.

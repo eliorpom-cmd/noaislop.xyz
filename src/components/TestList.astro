@@ -1,4 +1,5 @@
 ---
+import Copy from './Copy.astro';
 import type { TestItem } from '../i18n/types';
 
 interface Props {
@@ -12,40 +13,18 @@ const { items } = Astro.props;
   {
     items.map((item) => (
       <li>
-        <strong>{item.question}</strong> {item.text}
+        <strong>{item.question}</strong> <Copy text={item.text} />
       </li>
     ))
   }
 </ol>
 
 <style>
-  /* Numerals hang in the margin, like a numbered list in a book. */
   .test {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    counter-reset: test;
-  }
-
-  li {
-    counter-increment: test;
-    position: relative;
-    padding-inline-start: 2.25rem;
+    padding-inline-start: 1.35rem;
   }
 
   li + li {
-    margin-block-start: 0.9rem;
-  }
-
-  li::before {
-    content: counter(test) ".";
-    position: absolute;
-    inset-inline-start: 0;
-    inset-block-start: 0.06em;
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--slop-deep);
-    font-variant-numeric: tabular-nums;
+    margin-block-start: 0.4rem;
   }
 </style>

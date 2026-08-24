@@ -22,8 +22,8 @@
     "text": "Contenu numérique de faible qualité, produit généralement en quantité au moyen de l’intelligence artificielle.",
     "source": "Merriam-Webster, mot de l’année 2025",
     "body": [
-      "Le mot a décollé en mai 2024, grâce au développeur Simon Willison. Son propos n’a jamais été que l’IA est mauvaise. Tout contenu généré par IA n’est pas du slop. Ça devient du slop quand c’est produit sans réfléchir et imposé à des gens qui n’ont rien demandé.",
-      "C’est toute l’idée. Ce site ne parle pas d’IA. Il parle d’effort."
+      "Tout contenu généré par IA n’est pas du slop. Ça devient du slop quand c’est **produit sans réfléchir et imposé à des gens qui n’ont rien demandé**.",
+      "**Ce site ne parle pas d’IA. Il parle d’effort.**"
     ]
   },
   "dont": {
@@ -51,23 +51,23 @@
         "alt": "Une fenêtre de chat. La personne demande, en une ligne, une vidéo de chat qui danse à Koh-Lanta. La vidéo qui revient est floutée et tamponnée SLOP."
       }
     ],
-    "caption": "Une ligne de prompt. Aucune décision prise. Publication directe."
+    "caption": "**Une ligne de prompt. Aucune décision prise. Publication directe.**"
   },
   "cost": {
     "sectionTitle": "Pourquoi ça dérange",
-    "lede": "Tu as gagné quatre minutes. Tout le monde les paie.",
+    "lede": "Tu as gagné quatre minutes. **Tout le monde les paie.**",
     "items": [
       {
         "title": "Le feed est fini.",
-        "text": "Chaque post slop fait descendre quelque chose que quelqu’un a vraiment fabriqué. Des gens qui ont passé une semaine sur un truc sont en concurrence avec tes quatre minutes."
+        "text": "Chaque post slop fait descendre quelque chose que quelqu’un a vraiment fabriqué."
       },
       {
         "title": "Tu dépenses notre attention, pas la tienne.",
-        "text": "Cent personnes le lisent. Ça fait des heures de temps collectif, sur un truc auquel personne n’a réfléchi plus d’une seconde."
+        "text": "Cent personnes le lisent. Des heures de temps collectif, sur un truc auquel personne n’a réfléchi."
       },
       {
-        "title": "Ce n’est pas gratuit pour toi non plus.",
-        "text": "Le slop se reconnaît. Une fois qu’on l’a repéré chez toi, on lit différemment tout ce que tu publies, y compris ce qui est bon."
+        "title": "Le slop se reconnaît.",
+        "text": "Une fois qu’on l’a repéré chez toi, on lit différemment tout ce que tu publies."
       },
       {
         "title": "Personne ne te doit une lecture.",
@@ -78,25 +78,23 @@
   "standards": {
     "sectionTitle": "Fais plutôt ça",
     "body": [
-      "L’IA est un outil. Elle sert à gagner du temps sur des tâches répétitives ou à faible valeur ajoutée, ou à faire un brouillon rapide pour voir si l’idée tient. Ça, c’est très bien. Mais ce que tu publies devrait toujours contenir du jus de cerveau.",
-      "Voilà où est la barre."
+      "L’IA est un outil. Fais des brouillons avec, gagne du temps sur les tâches ingrates. Mais **ce que tu publies devrait contenir du jus de cerveau**."
     ],
     "blocks": [
       {
         "title": "Texte",
         "items": [
-          "L’idée vient de toi. Pas de « donne-moi 10 idées de post ».",
-          "Tu l’as relu, et tu l’as réécrit. Si une phrase du modèle a survécu telle quelle, demande-toi pourquoi.",
-          "Tu as viré les tics. Pas de « ce n’est pas X, c’est Y ». Pas de tirets cadratins partout. Pas de « plongeons dans le vif du sujet ». Pas de listes à emoji. Pas de fusées.",
-          "Tu peux défendre chaque affirmation. Quelqu’un demande « tu le sors d’où, ce chiffre ? » et tu as une réponse."
+          "L’idée vient de toi.",
+          "Tu l’as relu, et tu l’as réécrit.",
+          "Pas de « ce n’est pas X, c’est Y ». Pas de tirets cadratins. Pas de « plongeons dans le vif du sujet ».",
+          "Tu peux défendre chaque affirmation."
         ]
       },
       {
         "title": "Images",
         "items": [
-          "Tu as écrit un vrai brief, pas une ligne. Composition, cadrage, couleurs, ce qui est dedans et ce qui n’y est pas.",
-          "Tu as donné des références. Un croquis que tu as fait, un moodboard, une photo que tu as prise.",
-          "Tu as choisi un style et tu l’as nommé. Si le résultat a la tête du style IA par défaut, c’est que tu n’as rien demandé.",
+          "Tu as écrit un vrai brief, pas une ligne.",
+          "Tu as donné des références. Un croquis, un moodboard, une photo que tu as prise.",
           "Tu as itéré. Le premier output n’est jamais le bon."
         ]
       },
@@ -120,18 +118,18 @@
       },
       {
         "question": "Tu peux le défendre ?",
-        "text": "Chaque affirmation, chaque choix. À voix haute, face à quelqu’un qui n’est pas d’accord."
+        "text": "À voix haute, face à quelqu’un qui n’est pas d’accord."
       },
       {
         "question": "Tu l’aurais publié s’il avait fallu le faire à la main ?",
-        "text": "Si c’est non, l’idée ne valait pas la peine d’être publiée. L’IA ne t’a pas fait gagner du temps, elle a juste baissé tes exigences."
+        "text": "Si non, l’idée ne valait pas la peine."
       }
     ],
-    "outro": "Trois oui, tu publies. Sinon c’est du slop."
+    "outro": "**Trois oui, tu publies. Sinon c’est du slop.**"
   },
   "share": {
     "sectionTitle": "Envoie ça à quelqu’un",
-    "body": "Une affiche d’événement avec six doigts dessus ? Un post LinkedIn qui traite un café comme une ascension de l’Everest ? Envoie le lien plutôt que le commentaire que tu allais écrire.",
+    "body": "Une affiche avec six doigts dessus ? Un post LinkedIn sur le café du matin ? **Envoie le lien plutôt que le commentaire que tu allais écrire.**",
     "domain": "noaislop.xyz",
     "hint": "clique pour copier",
     "copied": "copié",
@@ -140,10 +138,9 @@
   "footer": {
     "lines": [
       "Cousin spirituel de nohello.net, dontasktoask.com et dontpastetheai.com.",
-      "Écrit par un humain, relu par un humain, défendu par un humain.",
-      "Traductions, corrections, PRs bienvenues sur GitHub. Domaine public, fais-en ce que tu veux."
+      "Écrit par un humain, relu par un humain. Domaine public, fais-en ce que tu veux."
     ],
-    "note": "Si quelqu’un t’a envoyé ce lien : il ne dit pas que tu es mauvais. Il dit qu’il aurait aimé voir ce que toi, tu aurais fait."
+    "note": "Si quelqu’un t’a envoyé ce lien : il ne dit pas que tu es mauvais. Il aurait aimé voir ce que toi, tu aurais fait."
   },
   "languageSwitcher": {
     "label": "Langue"

@@ -35,28 +35,27 @@
 /* Light theme only, on purpose: the page is a note, not an app.
    The look is a printed pamphlet. Hairlines, no shadows, no rounded panels,
    one column, left aligned. */
+/* Plain page, the way nohello.net is plain: white, black, blue links, bold for
+   what matters. Colour is rationed: green belongs to the slop, blue to the
+   things you can click, and nothing else gets any. */
 :root {
-  --paper: #fffdf6;
-  --paper-tint: #f6f4e6;
-  --ink: #15160e;
-  --ink-soft: #4e5044;
-  --ink-faint: #6a6c5e;
-  --rule: #d9d6c2;
-  --rule-strong: #15160e;
+  --paper: #fff;
+  --paper-tint: #fafafa;
+  --ink: #111;
+  --ink-soft: #555;
+  --ink-faint: #6b6b6b;
+  --rule: #e3e3e3;
 
-  /* First accent: vomit green. Slop iconography only, never navigation. */
   --slop: #a8c520;
   --slop-mid: #758d0d;
   --slop-deep: #4c5b06;
-  --slop-wash: #eef3d4;
   --stamp-ink: #1c2200;
 
-  /* Second accent: ink blue. Everything you can click. */
   --link: #1a34c4;
   --link-hover: #0d1c85;
-  --link-wash: #e8ebfb;
+  --link-wash: #eef0fb;
 
-  --measure: 39rem;
+  --measure: 38rem;
   --gutter: 1.5rem;
 
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
@@ -84,7 +83,7 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 1.0625rem;
-  line-height: 1.65;
+  line-height: 1.6;
   letter-spacing: -0.003em;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
@@ -123,8 +122,6 @@ b {
   font-weight: 700;
 }
 
-/* Layout ------------------------------------------------------------------ */
-
 .wrap {
   width: 100%;
   max-width: var(--measure);
@@ -133,38 +130,27 @@ b {
 }
 
 main {
-  padding-block: 3rem 0;
+  padding-block: 2.5rem 0;
 }
 
-/* A hairline above each section, the way a printed page separates parts. */
 .section {
-  margin-block-start: 3.25rem;
-  padding-block-start: 2.25rem;
-  border-block-start: 1px solid var(--rule);
+  margin-block-start: 2.75rem;
 }
 
 .section > * + * {
-  margin-block-start: 1.1rem;
+  margin-block-start: 1rem;
 }
 
 .section-title {
-  font-size: 1.5rem;
-  line-height: 1.15;
+  font-size: 1.375rem;
+  line-height: 1.2;
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
 }
 
-.lede {
-  font-weight: 700;
-}
-
-/* Small uppercase monospace, used for anything that labels rather than reads. */
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.small {
+  font-size: 0.875rem;
+  color: var(--ink-faint);
 }
 
 .visually-hidden {
@@ -185,7 +171,7 @@ main {
   }
 
   .section-title {
-    font-size: 1.3125rem;
+    font-size: 1.25rem;
   }
 }
 

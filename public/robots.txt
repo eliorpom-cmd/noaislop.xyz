@@ -1,0 +1,4 @@
+# Not launched yet. Remove this file, and the noindex meta tag in
+# src/layouts/BaseLayout.astro, when the site goes live.
+User-agent: *
+Disallow: /

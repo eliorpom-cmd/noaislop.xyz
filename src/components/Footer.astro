@@ -1,4 +1,6 @@
 ---
+import Copy from './Copy.astro';
+
 interface Props {
   lines: string[];
   note: string;
@@ -9,29 +11,32 @@ const { lines, note } = Astro.props;
 
 <footer class="footer">
   <div class="wrap">
-    {lines.map((line) => <p>{line}</p>)}
+    {
+      lines.map((line) => (
+        <p>
+          <Copy text={line} />
+        </p>
+      ))
+    }
     <p class="footer__note">{note}</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    margin-block-start: 3.25rem;
-    padding-block: 1.75rem 3.5rem;
+    margin-block-start: 2.75rem;
+    padding-block: 1.25rem 3rem;
     border-block-start: 1px solid var(--rule);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     line-height: 1.55;
-    color: var(--ink-soft);
+    color: var(--ink-faint);
   }
 
   p + p {
-    margin-block-start: 0.4rem;
+    margin-block-start: 0.35rem;
   }
 
   .footer__note {
-    margin-block-start: 1.1rem;
-    padding-inline-start: 0.9rem;
-    border-inline-start: 3px solid var(--slop);
-    color: var(--ink-faint);
+    margin-block-start: 0.9rem;
   }
 </style>

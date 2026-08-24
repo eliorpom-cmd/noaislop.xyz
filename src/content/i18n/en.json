@@ -5,7 +5,7 @@
     "ogLocale": "en_US",
     "label": "English",
     "title": "noaislop.xyz | your AI slop sucks.",
-    "description": "A page to send to someone who just published AI slop. This site is not about AI. It’s about effort.",
+    "description": "A page to send to someone who just published AI slop. Not about AI. About effort.",
     "ogTitle": "your AI slop sucks.",
     "ogDescription": "Someone sent you this link. There’s a reason.",
     "ogImageAlt": "The word SLOP stamped over a blurred AI answer."
@@ -22,8 +22,8 @@
     "text": "Low-quality digital content, usually produced in quantity using artificial intelligence.",
     "source": "Merriam-Webster, Word of the Year 2025",
     "body": [
-      "The word got popular in May 2024, thanks to developer Simon Willison. His point was never that AI is bad. Not all AI-generated content is slop. It becomes slop when it’s generated without thinking and pushed onto people who never asked for it.",
-      "That’s the whole idea. This site is not about AI. It’s about effort."
+      "Not all AI-generated content is slop. It becomes slop when it’s **generated without thinking and pushed onto people who never asked for it**.",
+      "**This site is not about AI. It’s about effort.**"
     ]
   },
   "dont": {
@@ -51,23 +51,23 @@
         "alt": "A chat window. The person asks, in one line, for a video of a cat dancing on Survivor. The video that comes back is blurred out and stamped SLOP."
       }
     ],
-    "caption": "One line in. Zero decisions made. Straight to publish."
+    "caption": "**One line in. Zero decisions made. Straight to publish.**"
   },
   "cost": {
     "sectionTitle": "Why anyone cares",
-    "lede": "You saved four minutes. Everyone else pays for them.",
+    "lede": "You saved four minutes. **Everyone else pays for them.**",
     "items": [
       {
         "title": "The feed is finite.",
-        "text": "Every slop post pushes down something someone actually made. People who spent a week on a thing are competing with your four minutes."
+        "text": "Every slop post pushes down something someone actually made."
       },
       {
         "title": "You’re spending our attention, not yours.",
-        "text": "A hundred people read it. That’s hours of collective time, on something nobody thought about for more than a second."
+        "text": "A hundred people read it. Hours of collective time, on something nobody thought about."
       },
       {
-        "title": "It’s not free for you either.",
-        "text": "Slop is recognizable. Once people spot it in your work, they start reading everything you publish differently, including the good stuff."
+        "title": "Slop is recognizable.",
+        "text": "Once people spot it in your work, they read everything you publish differently."
       },
       {
         "title": "Nobody owes you a read.",
@@ -78,25 +78,23 @@
   "standards": {
     "sectionTitle": "Do this instead",
     "body": [
-      "AI is a tool. Use it to save time on repetitive, low-value tasks, or to draft something fast and see if the idea holds. That part is fine. But what you publish should always have some of your own brain in it.",
-      "Here’s where the bar sits."
+      "AI is a tool. Draft with it, speed up the boring parts. But **what you publish should have some of your own brain in it**."
     ],
     "blocks": [
       {
         "title": "Writing",
         "items": [
-          "The idea is yours. Not “give me 10 post ideas”.",
-          "You reread it, and you rewrote it. If the model’s sentence survived untouched, ask yourself why.",
-          "Kill the tells. No “it’s not X, it’s Y”. No em dashes everywhere. No “let’s dive in”. No emoji bullet points. No rocket ships.",
-          "You can defend every claim in it. Someone replies “where did you get that number?” and you have an answer."
+          "The idea is yours.",
+          "You reread it, and you rewrote it.",
+          "No “it’s not X, it’s Y”. No em dashes. No “let’s dive in”.",
+          "You can defend every claim in it."
         ]
       },
       {
         "title": "Images",
         "items": [
-          "You wrote an actual brief, not one line. Composition, framing, colors, what’s in and what’s out.",
-          "You gave references. A sketch you made, a mood board, a photo you shot.",
-          "You picked a style and named it. If it came out looking like default AI, that’s because you asked for nothing.",
+          "You wrote a real brief, not one line.",
+          "You gave references. A sketch, a mood board, a photo you shot.",
           "You iterated. First output is never the one."
         ]
       },
@@ -112,7 +110,7 @@
   "emphasis": "If you don’t put any of yourself into what you post, why should we bother reading it?",
   "test": {
     "sectionTitle": "The test",
-    "intro": "Before you hit publish, three questions.",
+    "intro": "Before you publish, three questions.",
     "items": [
       {
         "question": "Did you read all of it?",
@@ -120,18 +118,18 @@
       },
       {
         "question": "Could you defend it?",
-        "text": "Every claim, every choice. Out loud, to someone who disagrees."
+        "text": "Out loud, to someone who disagrees."
       },
       {
         "question": "Would you still publish it if you had to make it by hand?",
-        "text": "If the answer is no, the idea was never worth publishing. The AI didn’t save you time, it just lowered your standards."
+        "text": "If not, it was never worth publishing."
       }
     ],
-    "outro": "Three yes. Publish. Otherwise it’s slop."
+    "outro": "**Three yes. Publish. Otherwise it’s slop.**"
   },
   "share": {
     "sectionTitle": "Send this to someone",
-    "body": "Saw an event poster with six fingers on it? A LinkedIn post treating a coffee like a summit push? Drop the link instead of the comment you were about to write.",
+    "body": "Saw a poster with six fingers on it? A LinkedIn post about morning coffee? **Send the link instead of the comment you were about to write.**",
     "domain": "noaislop.xyz",
     "hint": "click to copy",
     "copied": "copied",
@@ -140,10 +138,9 @@
   "footer": {
     "lines": [
       "Spiritual cousin of nohello.net, dontasktoask.com and dontpastetheai.com.",
-      "Written by a human, reviewed by a human, defended by a human.",
-      "Translations, fixes, PRs welcome on GitHub. Public domain, do what you want with it."
+      "Written by a human, reviewed by a human. Public domain, do what you want with it."
     ],
-    "note": "If someone sent you this link: they’re not saying you’re a bad creator. They’re saying they’d like to see what you’d have made."
+    "note": "If someone sent you this link: they’re not saying you’re bad at this. They’d like to see what you’d have made."
   },
   "languageSwitcher": {
     "label": "Language"

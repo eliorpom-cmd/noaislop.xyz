@@ -56,6 +56,10 @@ public/              favicon, OG image, self-hosted fonts
 tools/               source of the OG image, see tools/README.md
 ```
 
+The only markup inside the copy is `**bold**`, rendered by
+`src/components/Copy.astro`. Nothing from a locale file is ever injected as raw
+HTML, so a translation pull request cannot smuggle markup into the page.
+
 Two rules hold the project together:
 
 1. **No copy in components.** Every string comes from
@@ -74,6 +78,12 @@ sends the reader to their language if the site has it. The choice is written to
 someone who came back to English on purpose. Clicking the language switcher
 writes the same key. Storage blocked or JavaScript off: everyone stays on
 English, which is the correct fallback.
+
+## Not indexed yet
+
+The page carries `<meta name="robots" content="noindex, nofollow">` and
+`public/robots.txt` disallows everything. Delete the meta tag in
+`src/layouts/BaseLayout.astro` and the robots file to open it to search engines.
 
 ## Deploy
 

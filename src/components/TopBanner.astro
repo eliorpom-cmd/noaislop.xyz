@@ -42,10 +42,8 @@ const { text, locale, switcherLabel } = Astro.props;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-family: var(--font-mono);
     font-size: 0.9375rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
     color: var(--ink);
     text-decoration: none;
   }
@@ -53,26 +51,17 @@ const { text, locale, switcherLabel } = Astro.props;
   .masthead__name:hover {
     color: var(--ink);
     text-decoration: underline;
-    text-decoration-color: var(--slop-mid);
-    text-decoration-thickness: 2px;
   }
 
   .masthead__mark {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     line-height: 1;
-  }
-
-  .notice {
-    border-block-end: 1px solid var(--rule);
-    background: var(--slop-wash);
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: var(--ink-soft);
   }
 
   .notice .wrap {
     display: block;
-    padding-block: 0.55rem;
+    padding-block: 0.9rem 0;
+    font-size: 0.875rem;
+    color: var(--ink-faint);
   }
 </style>

@@ -1,4 +1,5 @@
 ---
+import Copy from './Copy.astro';
 import type { StandardsBlock } from '../i18n/types';
 
 interface Props {
@@ -12,10 +13,12 @@ const { blocks } = Astro.props;
   {
     blocks.map((block) => (
       <section class="standards__block">
-        <h3 class="label standards__title">{block.title}</h3>
+        <h3>{block.title}</h3>
         <ul>
           {block.items.map((item) => (
-            <li>{item}</li>
+            <li>
+              <Copy text={item} />
+            </li>
           ))}
         </ul>
       </section>
@@ -25,25 +28,20 @@ const { blocks } = Astro.props;
 
 <style>
   .standards__block + .standards__block {
-    margin-block-start: 1.75rem;
+    margin-block-start: 1.4rem;
   }
 
-  .standards__title {
-    padding-block-end: 0.35rem;
-    border-block-end: 1px solid var(--rule);
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
   }
 
   ul {
-    margin-block-start: 0.7rem;
-    padding-inline-start: 1.1rem;
-    list-style: square;
+    margin-block-start: 0.4rem;
+    padding-inline-start: 1.15rem;
   }
 
   li + li {
-    margin-block-start: 0.45rem;
-  }
-
-  li::marker {
-    color: var(--slop-mid);
+    margin-block-start: 0.3rem;
   }
 </style>

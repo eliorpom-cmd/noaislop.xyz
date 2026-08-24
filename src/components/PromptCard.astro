@@ -19,7 +19,7 @@ const press = presses[index % presses.length];
 
 // The stamp lands on the middle of the answer, and the answer is not always
 // the full width of the column.
-const centres = { text: '50%', image: '30%', video: '48%' };
+const centres = { text: '50%', image: '24%', video: '40%' };
 const centre = centres[card.kind];
 ---
 
@@ -87,7 +87,7 @@ const centre = centres[card.kind];
   }
 
   .mock {
-    padding: 1rem;
+    padding: 0.85rem;
     border: 1px solid var(--rule);
     background: var(--paper-tint);
   }
@@ -103,7 +103,7 @@ const centre = centres[card.kind];
     max-width: 90%;
     margin-inline-start: auto;
     background: var(--link-wash);
-    border: 1px solid #c9d0f2;
+    border: 1px solid #d5daf5;
     border-radius: 12px 12px 3px 12px;
   }
 
@@ -137,21 +137,22 @@ const centre = centres[card.kind];
   }
 
   .bubble--poster {
-    width: 58%;
+    width: 46%;
     aspect-ratio: 4 / 5;
   }
 
   .bubble--video {
-    width: 92%;
+    width: 76%;
     aspect-ratio: 16 / 9;
   }
 
   .frame {
     position: absolute;
     inset: 0;
-    /* Scaled up so the blur never drags the edges into view. */
+    /* Scaled up so the blur never drags the edges into view. Colour is pulled
+       most of the way out: this is background, it should not pull the eye. */
     scale: 1.12;
-    filter: blur(7px);
+    filter: blur(7px) saturate(0.12) brightness(1.16) contrast(0.88);
   }
 
   .frame span {
@@ -243,7 +244,7 @@ const centre = centres[card.kind];
     align-items: center;
     gap: 0.5rem;
     padding: 0.4rem 0.6rem;
-    background: rgb(9 14 19 / 0.72);
+    background: rgb(9 14 19 / 0.55);
   }
 
   .player__play {
@@ -279,7 +280,7 @@ const centre = centres[card.kind];
     translate: calc(-50% + var(--dx)) calc(-50% + var(--dy));
     rotate: var(--angle);
     font-family: var(--font-drip);
-    font-size: 4.5rem;
+    font-size: 3.75rem;
     line-height: 1;
     letter-spacing: 0.02em;
     white-space: nowrap;

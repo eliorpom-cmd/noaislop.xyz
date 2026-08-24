@@ -6,28 +6,20 @@ interface Props {
 const { quote } = Astro.props;
 ---
 
-<blockquote class="pull">
-  <p>{quote}</p>
-</blockquote>
+<p class="pull"><strong>{quote}</strong></p>
 
 <style>
   .pull {
-    margin-block-start: 3.25rem;
-    padding-block: 1.75rem;
-    border-block: 3px solid var(--rule-strong);
-  }
-
-  p {
-    font-size: 1.5rem;
-    line-height: 1.25;
-    font-weight: 600;
-    letter-spacing: -0.03em;
+    margin-block-start: 2.75rem;
+    font-size: 1.25rem;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
   @media (max-width: 30rem) {
-    p {
-      font-size: 1.25rem;
+    .pull {
+      font-size: 1.125rem;
     }
   }
 </style>

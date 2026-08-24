@@ -1,0 +1,13 @@
+---
+// Renders one string of copy. Text between double asterisks becomes bold.
+// That is the whole markup language: translators never touch HTML, and nothing
+// from the locale files is ever injected as raw markup.
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+const parts = text.split('**').map((chunk, index) => ({ chunk, bold: index % 2 === 1 }));
+---
+
+{parts.map(({ chunk, bold }) => (bold ? <strong>{chunk}</strong> : <Fragment>{chunk}</Fragment>))}
