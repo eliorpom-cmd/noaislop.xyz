@@ -4,63 +4,38 @@ A single page you send to someone who just published AI slop.
 
 Same family as [nohello.net](https://nohello.net),
 [dontasktoask.com](https://dontasktoask.com) and
-[dontpastetheai.com](https://dontpastetheai.com): one page, one point, no
-account, no tracker, no cookie.
+[dontpastetheai.com](https://dontpastetheai.com): one page, no account, no
+tracker, no cookie.
 
-The point is not that AI is bad. The point is that publishing something nobody
-thought about, to people who never asked for it, costs everyone else their
-attention. The page is about effort.
+It asks one thing of the reader: put something of your own in what you publish.
 
 ## Stack
 
 [Astro](https://astro.build) in static mode, TypeScript, no UI framework. The
-only JavaScript shipped to the browser is a clipboard button, a language
-preference, and a one-time redirect on the canonical page.
+only JavaScript in the browser is the copy button, the language menu and a
+one-time redirect on the canonical page.
 
-The layout is one column on a 40rem measure. Each section opens with a hairline
-and a title in the marker face. The only rules on the page are the ones that
-separate two sections: no rule inside a list, none under the header. One accent
-colour, the lime the stamp is printed in. Greys are picked to clear WCAG AA on
-the background.
-
-Three typefaces, all self-hosted from `public/fonts/`, so the page calls no third
-party at all:
+Three typefaces, all served from `public/fonts/`, so the page calls no third
+party:
 
 - **Nimbus Sans L**, shipped as [TeX Gyre Heros](https://www.gust.org.pl/projects/e-foundry/tex-gyre/heros),
-  the free descendant maintained by GUST, for every word of text. GUST Font
-  License, included next to the files.
+  for every word of text. GUST Font License.
 - **[Comico](https://www.fontshare.com/fonts/comico)** for the title, the
-  section titles, the numbers in the test and the domain on the copy button. It
-  is unicase, it only draws capitals, and it never sets a paragraph. Free from
-  Fontshare under the ITF Free Font License.
-- **[Rubik Wet Paint](https://fonts.google.com/specimen/Rubik+Wet+Paint)**,
-  subset to the alphabet, for the one word it exists for: SLOP. SIL Open Font
+  section titles, the numbers in the test and the domain on the copy button.
+  Unicase: it draws capitals only, so it sets no paragraphs. ITF Free Font
   License.
+- **[Rubik Wet Paint](https://fonts.google.com/specimen/Rubik+Wet+Paint)**,
+  subset to the alphabet, for the word SLOP. SIL Open Font License.
 
-The `latin-ext` slices only download for languages that need them.
+Every licence file is in `public/fonts/` next to the fonts it covers.
 
-"Don't do this" is three one-line prompts, each stamped SLOP. No screenshot, no
-reconstructed chat window: the prompts are the whole point, and they are set in
-type like everything else.
-
-The language menu is ours, not the operating system's: a `<details>` disclosure
-with a panel of links, so it opens without JavaScript and takes as many
-languages as we add. The copy button fills with the accent colour once the
-domain is on the clipboard, with no transition: the state is the feedback.
-
-## Run it locally
+## Run it
 
 ```sh
 npm install
 npm run dev      # http://localhost:4321
-```
-
-Other scripts:
-
-```sh
 npm run build    # static site into dist/
-npm run preview  # serve the built site
-npm run check    # astro check, type-checks the pages and the locale files
+npm run check    # types, pages and locale files
 ```
 
 Node 22.12 or newer.
@@ -69,52 +44,45 @@ Node 22.12 or newer.
 
 ```
 src/
-├─ content/i18n/     one JSON file per language, all the copy lives here
-├─ i18n/             locale registry (config.ts), helpers (utils.ts), types
-├─ layouts/          BaseLayout.astro: head, meta, hreflang, redirect script
-├─ components/       TopBanner, Hero, Definition, SlopList, Standards,
-│                    TestList, EmphasisBox, CopyLink, Footer
-├─ pages/            index.astro (canonical) and [locale]/index.astro
-└─ styles/global.css design tokens and shared layout
-public/              favicon, OG image, self-hosted fonts
-tools/               source of the OG image, see tools/README.md
+├─ content/i18n/     one JSON file per language, all the copy
+├─ i18n/             locale registry, helpers, types
+├─ layouts/          BaseLayout.astro: head, meta, hreflang, redirect
+├─ components/       one per block of the page
+├─ pages/            index.astro and [locale]/index.astro
+└─ styles/global.css tokens, layout, @font-face
+public/              favicon, OG image, fonts
+tools/               source of the OG image
 ```
 
-The only markup inside the copy is `**bold**` and `[label](https://url)`,
-rendered by `src/components/Copy.astro`, which only turns `http`, `https`,
-`mailto` and root-relative URLs into links. Nothing from a locale file is ever
-injected as raw HTML, so a translation pull request cannot smuggle markup into
-the page.
-
-Two rules hold the project together:
+Two rules:
 
 1. **No copy in components.** Every string comes from
    `src/content/i18n/{locale}.json`. A component that hardcodes text is a bug.
-2. **A language is a file.** Drop `de.json` in `src/content/i18n/`, and `/de/`
-   gets built, listed in the language switcher, and added to every `hreflang`.
-   Nothing else to register. See [CONTRIBUTING.md](CONTRIBUTING.md).
+2. **A language is a file.** Drop `de.json` in `src/content/i18n/` and the build
+   produces `/de/`, lists it in the language menu and adds it to the `hreflang`
+   tags. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+The only markup allowed inside the copy is `**bold**` and
+`[label](https://url)`, rendered by `src/components/Copy.astro`. Nothing from a
+locale file is ever injected as raw HTML, so a translation pull request cannot
+smuggle markup into the page.
 
 ## How languages resolve
 
-`/` is English and canonical. Every other language is prefixed: `/fr/`, `/de/`.
+`/` is English and canonical, every other language is prefixed: `/fr/`, `/de/`.
 
-On `/` only, an inline script reads `navigator.languages` and, the first time,
-sends the reader to their language if the site has it. The choice is written to
-`localStorage` under `noaislop:lang`, so it happens once and never fights
-someone who came back to English on purpose. Clicking the language switcher
-writes the same key. Storage blocked or JavaScript off: everyone stays on
-English, which is the correct fallback.
+On `/` only, an inline script sends a first-time reader to their language if the
+site has it, then writes that choice to `localStorage` under `noaislop:lang`.
+The redirect runs once, so a reader who comes back to English on purpose stays
+there. Without storage or JavaScript, the reader stays on English.
 
 ## Deploy
 
-`npm run build` produces a fully static `dist/`. Drop it on anything: Netlify,
-Vercel, Cloudflare Pages, GitHub Pages, an S3 bucket, a shared host over FTP.
-No server, no runtime, no environment variable.
+`npm run build` produces a static `dist/`. Any host serves it: build command
+`npm run build`, publish directory `dist`.
 
-Build command `npm run build`, publish directory `dist`.
-
-If you deploy on another domain, change `site` in `astro.config.mjs`. It is what
-`canonical`, `hreflang` and the OG image URL are built from.
+On another domain, change `site` in `astro.config.mjs`. The build reads it for
+`canonical`, for `hreflang` and for the OG image URL.
 
 ## License
 

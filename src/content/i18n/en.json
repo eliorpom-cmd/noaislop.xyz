@@ -29,9 +29,9 @@
     "intro": "It’s not the tool. It’s how you use it.",
     "stamp": "SLOP",
     "prompts": [
-      "make me a flyer for my event",
-      "write me a motivational LinkedIn post about morning coffee",
-      "generate me a video of a cat saying have a good day"
+      "“make me a flyer for my event”",
+      "“write me a motivational LinkedIn post about morning coffee”",
+      "“generate me a video of a cat saying have a good day”"
     ],
     "lede": "Ok you saved 3 minutes… but everyone who’ll see the result will suffer for it.",
     "body": [
@@ -45,7 +45,7 @@
     ],
     "example": {
       "stamp": "FINE",
-      "prompt": "vertical flyer. Photo I shot (attached) of last year’s venue as background, desaturated. Big condensed orange title, sans serif font, left-aligned, bottom third. Date and address in one line under the title."
+      "prompt": "“vertical flyer. Photo I shot (attached) of last year’s venue as background, desaturated. Big condensed orange title, sans serif font, left-aligned, bottom third. Date and address in one line under the title.”"
     },
     "blocks": [
       {
