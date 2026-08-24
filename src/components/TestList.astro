@@ -1,48 +1,40 @@
 ---
-import Copy from './Copy.astro';
-import type { TestItem } from '../i18n/types';
-
 interface Props {
-  items: TestItem[];
+  items: string[];
 }
 
 const { items } = Astro.props;
 ---
 
 <ol class="test">
-  {
-    items.map((item) => (
-      <li>
-        <strong>{item.question}</strong> <Copy text={item.text} />
-      </li>
-    ))
-  }
+  {items.map((item) => <li>{item}</li>)}
 </ol>
 
 <style>
   .test {
-    margin: 18px 0 16px 20px;
+    margin: 0 0 1.25rem;
     padding: 0;
     list-style: none;
     counter-reset: test;
-    font-size: 18px;
-    line-height: 24px;
-    color: var(--muted);
   }
 
   li {
     counter-increment: test;
-    margin-bottom: 10px;
+    padding-inline-start: 2rem;
+    color: var(--ink);
+  }
+
+  li + li {
+    margin-top: 0.5rem;
   }
 
   li::before {
-    content: counter(test) ".";
-    padding-right: 10px;
-    font-weight: 700;
-    color: var(--card-title);
-  }
-
-  li strong {
-    color: var(--text);
+    content: "0" counter(test);
+    display: inline-block;
+    width: 2rem;
+    margin-inline-start: -2rem;
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    color: var(--slop-mid);
   }
 </style>

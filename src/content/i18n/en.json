@@ -8,9 +8,8 @@
     "description": "A page to send to someone who just published AI slop. Not about AI. About effort.",
     "ogTitle": "your AI slop sucks.",
     "ogDescription": "Someone sent you this link. There’s a reason.",
-    "ogImageAlt": "The word SLOP stamped over a blurred AI answer."
+    "ogImageAlt": "The word SLOP stamped over the title of the page."
   },
-  "banner": "Someone sent you this link. There’s a reason.",
   "hero": {
     "h1": "your AI slop sucks.",
     "subtitle": "like, really."
@@ -22,118 +21,54 @@
     "text": "Low-quality digital content, usually produced in quantity using artificial intelligence.",
     "source": "Merriam-Webster, Word of the Year 2025",
     "body": [
-      "Not all AI-generated content is slop. It becomes slop when it’s **generated without thinking and pushed onto people who never asked for it**.",
-      "**This site is not about AI. It’s about effort.**"
+      "Not all AI content is slop. It becomes slop when **nobody thought about it** and it gets pushed on people who never asked."
     ]
   },
   "dont": {
     "sectionTitle": "Don’t do this",
     "stamp": "SLOP",
-    "chrome": {
-      "assistant": "Assistant",
-      "composer": "Message the assistant"
-    },
-    "cards": [
-      {
-        "prompt": "make me a flyer for my event",
-        "kind": "image",
-        "alt": "A chat window. The person asks, in one line, for a flyer for their event. The image that comes back is blurred out and stamped SLOP."
-      },
-      {
-        "prompt": "write me a motivational LinkedIn post about morning coffee",
-        "kind": "text",
-        "alt": "A chat window. The person asks, in one line, for a motivational LinkedIn post about morning coffee. The answer is blurred out and stamped SLOP.",
-        "reply": [
-          "This morning, I poured a cup of coffee. And it taught me everything I need to know about leadership.",
-          "Here are the five lessons that changed how I think about building teams, one sip at a time.",
-          "What is your morning ritual? Let me know in the comments below."
-        ]
-      },
-      {
-        "prompt": "make a video of a cat dancing on Survivor",
-        "kind": "video",
-        "alt": "A chat window. The person asks, in one line, for a video of a cat dancing on Survivor. The video that comes back is blurred out and stamped SLOP."
-      }
+    "prompts": [
+      "make me a flyer for my event",
+      "write me a motivational LinkedIn post about morning coffee",
+      "generate me a video of a cat saying “have a good day”"
     ],
-    "caption": "**One line in. Zero decisions made. Straight to publish.**"
-  },
-  "cost": {
-    "sectionTitle": "Why anyone cares",
-    "lede": "You saved four minutes. **Everyone else pays for them.**",
-    "items": [
-      {
-        "title": "The feed is finite.",
-        "text": "Every slop post pushes down something someone actually made."
-      },
-      {
-        "title": "You’re spending our attention, not yours.",
-        "text": "A hundred people read it. Hours of collective time, on something nobody thought about."
-      },
-      {
-        "title": "Slop is recognizable.",
-        "text": "Once people spot it in your work, they read everything you publish differently."
-      },
-      {
-        "title": "Nobody owes you a read.",
-        "text": "Attention is given, not taken."
-      }
+    "lede": "You saved 10 minutes. **Everyone else pays for them.**",
+    "body": [
+      "Every slop post buries something a person actually made. And once people spot slop in your work, they read everything you publish differently. Including the good stuff."
     ]
   },
   "standards": {
     "sectionTitle": "Do this instead",
     "body": [
-      "AI is a tool. Draft with it, speed up the boring parts. But **what you publish should have some of your own brain in it**."
+      "Use AI to draft, to speed up the boring parts, to test an idea. Fine. **Just put something of yours in what you publish.**"
     ],
     "blocks": [
       {
-        "title": "Writing",
-        "items": [
-          "The idea is yours.",
-          "You reread it, and you rewrote it.",
-          "No “it’s not X, it’s Y”. No em dashes. No “let’s dive in”.",
-          "You can defend every claim in it."
-        ]
+        "title": "Writing:",
+        "text": "Your idea. Reread, rewritten, tells removed. You can defend every claim in it."
       },
       {
-        "title": "Images",
-        "items": [
-          "You wrote a real brief, not one line.",
-          "You gave references. A sketch, a mood board, a photo you shot.",
-          "You iterated. First output is never the one."
-        ]
+        "title": "Images:",
+        "text": "A real brief, references, a named style. Not one line and the first output."
       },
       {
-        "title": "Video",
-        "items": [
-          "AI does a shot you couldn’t get, inside something you actually made.",
-          "Not: prompt, download, post."
-        ]
+        "title": "Video:",
+        "text": "AI does a shot you couldn’t get, inside something you actually made."
       }
     ]
   },
-  "emphasis": "If you don’t put any of yourself into what you post, why should we bother reading it?",
   "test": {
     "sectionTitle": "The test",
-    "intro": "Before you publish, three questions.",
     "items": [
-      {
-        "question": "Did you read all of it?",
-        "text": "All of it. Not skimmed."
-      },
-      {
-        "question": "Could you defend it?",
-        "text": "Out loud, to someone who disagrees."
-      },
-      {
-        "question": "Would you still publish it if you had to make it by hand?",
-        "text": "If not, it was never worth publishing."
-      }
+      "Did you read all of it?",
+      "Could you defend it?",
+      "Would you still publish it if you had to make it by hand?"
     ],
     "outro": "**Three yes. Publish. Otherwise it’s slop.**"
   },
+  "emphasis": "If you don’t put any of yourself into what you post, why should we bother reading it?",
   "share": {
     "sectionTitle": "Send this to someone",
-    "body": "Saw a poster with six fingers on it? A LinkedIn post about morning coffee? **Send the link instead of the comment you were about to write.**",
     "domain": "noaislop.xyz",
     "hint": "click to copy",
     "copied": "copied",
@@ -141,12 +76,13 @@
   },
   "footer": {
     "lines": [
-      "Spiritual cousin of nohello.net, dontasktoask.com and dontpastetheai.com.",
-      "Written by a human, reviewed by a human. Public domain, do what you want with it."
-    ],
-    "note": "If someone sent you this link: they’re not saying you’re bad at this. They’d like to see what you’d have made."
+      "Spiritual cousin of [nohello.net](https://nohello.net), [dontasktoask.com](https://dontasktoask.com) and [dontpastetheai.com](https://dontpastetheai.com).",
+      "Written by a human, reviewed by a human, defended by a human.",
+      "PRs and translations welcome on [GitHub](https://github.com/eliorpom-cmd/noaislop.xyz). Public domain."
+    ]
   },
   "languageSwitcher": {
+    "prompt": "Prefer another language?",
     "label": "Language"
   }
 }

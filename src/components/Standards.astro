@@ -1,45 +1,53 @@
 ---
 import Copy from './Copy.astro';
-import type { StandardsBlock } from '../i18n/types';
+import type { RunIn } from '../i18n/types';
 
 interface Props {
-  blocks: StandardsBlock[];
+  blocks: RunIn[];
 }
 
 const { blocks } = Astro.props;
 ---
 
-<div class="standards">
+<dl class="runin">
   {
     blocks.map((block) => (
-      <section class="standards__block">
-        <h3>{block.title}</h3>
-        <ul class="marks marks--yes">
-          {block.items.map((item) => (
-            <li>
-              <Copy text={item} />
-            </li>
-          ))}
-        </ul>
-      </section>
+      <div class="runin__item">
+        <dt>{block.title}</dt>
+        <dd>
+          <Copy text={block.text} />
+        </dd>
+      </div>
     ))
   }
-</div>
+</dl>
 
 <style>
-  .standards {
-    margin-top: 26px;
+  /* Run-in headings: the bold word starts the line and carries the point. */
+  .runin {
+    margin-top: 1.5rem;
   }
 
-  .standards__block + .standards__block {
-    margin-top: 28px;
+  .runin__item {
+    color: var(--text);
   }
 
-  h3 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 26px;
-    color: var(--card-title);
+  .runin__item + .runin__item {
+    margin-top: 0.75rem;
+  }
+
+  dt,
+  dd {
+    display: inline;
+    margin: 0;
+  }
+
+  dt {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  dd::before {
+    content: " ";
   }
 </style>

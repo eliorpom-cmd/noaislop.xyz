@@ -17,21 +17,36 @@ attention. The page is about effort.
 only JavaScript shipped to the browser is a clipboard button, a language
 preference, and a one-time redirect on the canonical page.
 
-The layout, type scale and colours follow nohello.net closely: Lato, a 1100px
-container, a 94px hero, two columns at 40/59, cards with a soft double shadow,
-a footer that fades into grey. Three of its values were darkened to clear WCAG
-AA, and each one says so in a comment in `src/styles/global.css`.
+The layout is one column on a 40rem measure. Each section opens with a hairline
+and a title in the marker face. The only rules on the page are the ones that
+separate two sections: no rule inside a list, none under the header. One accent
+colour, the lime the stamp is printed in. Greys are picked to clear WCAG AA on
+the background.
 
-Two typefaces, both self-hosted from `public/fonts/`, so the page calls no third
-party at all: [Lato](https://fonts.google.com/specimen/Lato) at 300, 400 and 700
-for everything, and
-[Rubik Wet Paint](https://fonts.google.com/specimen/Rubik+Wet+Paint), subset to
-the alphabet, for the dripping SLOP stamp. Both are under the SIL Open Font
-License, included next to the files. The `latin-ext` slices only download for
-languages that need them.
+Three typefaces, all self-hosted from `public/fonts/`, so the page calls no third
+party at all:
 
-The chat cards are a generic assistant interface: no product name, no logo, no
-brand colours. It should read as "an AI chatbot", not as a specific one.
+- **Nimbus Sans L**, shipped as [TeX Gyre Heros](https://www.gust.org.pl/projects/e-foundry/tex-gyre/heros),
+  the free descendant maintained by GUST, for every word of text. GUST Font
+  License, included next to the files.
+- **[Comico](https://www.fontshare.com/fonts/comico)** for the title, the
+  section titles, the numbers in the test and the domain on the copy button. It
+  is unicase, it only draws capitals, and it never sets a paragraph. Free from
+  Fontshare under the ITF Free Font License.
+- **[Rubik Wet Paint](https://fonts.google.com/specimen/Rubik+Wet+Paint)**,
+  subset to the alphabet, for the one word it exists for: SLOP. SIL Open Font
+  License.
+
+The `latin-ext` slices only download for languages that need them.
+
+"Don't do this" is three one-line prompts, each stamped SLOP. No screenshot, no
+reconstructed chat window: the prompts are the whole point, and they are set in
+type like everything else.
+
+The language menu is ours, not the operating system's: a `<details>` disclosure
+with a panel of links, so it opens without JavaScript and takes as many
+languages as we add. The copy button fills with the accent colour once the
+domain is on the clipboard, with no transition: the state is the feedback.
 
 ## Run it locally
 
@@ -57,17 +72,19 @@ src/
 ├─ content/i18n/     one JSON file per language, all the copy lives here
 ├─ i18n/             locale registry (config.ts), helpers (utils.ts), types
 ├─ layouts/          BaseLayout.astro: head, meta, hreflang, redirect script
-├─ components/       TopBanner, Hero, DefinitionCard, PromptCard, CostList,
-│                    Standards, EmphasisBox, TestList, CopyLink, Footer
+├─ components/       TopBanner, Hero, Definition, SlopList, Standards,
+│                    TestList, EmphasisBox, CopyLink, Footer
 ├─ pages/            index.astro (canonical) and [locale]/index.astro
 └─ styles/global.css design tokens and shared layout
 public/              favicon, OG image, self-hosted fonts
 tools/               source of the OG image, see tools/README.md
 ```
 
-The only markup inside the copy is `**bold**`, rendered by
-`src/components/Copy.astro`. Nothing from a locale file is ever injected as raw
-HTML, so a translation pull request cannot smuggle markup into the page.
+The only markup inside the copy is `**bold**` and `[label](https://url)`,
+rendered by `src/components/Copy.astro`, which only turns `http`, `https`,
+`mailto` and root-relative URLs into links. Nothing from a locale file is ever
+injected as raw HTML, so a translation pull request cannot smuggle markup into
+the page.
 
 Two rules hold the project together:
 

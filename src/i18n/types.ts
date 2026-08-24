@@ -1,29 +1,9 @@
 // Shape of one locale file. Every file in src/content/i18n/ must match it,
 // so a missing key in a translation breaks the build instead of the page.
 
-export interface PromptCard {
-  /** The one line prompt, shown in the user bubble. */
-  prompt: string;
-  /** What comes back: plain text, a generated image, or a video. */
-  kind: 'text' | 'image' | 'video';
-  /** Accessible description of the whole card, blurred reply included. */
-  alt: string;
-  /** Fake reply text, blurred and aria-hidden. Only used when kind is "text". */
-  reply?: string[];
-}
-
-export interface CostItem {
+export interface RunIn {
+  /** Run-in heading: the first two words of the line, in bold. */
   title: string;
-  text: string;
-}
-
-export interface StandardsBlock {
-  title: string;
-  items: string[];
-}
-
-export interface TestItem {
-  question: string;
   text: string;
 }
 
@@ -42,7 +22,6 @@ export interface Copy {
     ogDescription: string;
     ogImageAlt: string;
   };
-  banner: string;
   hero: {
     h1: string;
     subtitle: string;
@@ -57,35 +36,27 @@ export interface Copy {
   };
   dont: {
     sectionTitle: string;
+    /** The word stamped at the end of every line. */
     stamp: string;
-    /** The two labels on the reconstructed assistant interface. */
-    chrome: {
-      assistant: string;
-      composer: string;
-    };
-    cards: PromptCard[];
-    caption: string;
-  };
-  cost: {
-    sectionTitle: string;
+    /** One line prompts, the kind that goes straight to publish. */
+    prompts: string[];
+    /** What the prompts cost, read right under them. */
     lede: string;
-    items: CostItem[];
+    body: string[];
   };
   standards: {
     sectionTitle: string;
     body: string[];
-    blocks: StandardsBlock[];
+    blocks: RunIn[];
   };
-  emphasis: string;
   test: {
     sectionTitle: string;
-    intro: string;
-    items: TestItem[];
+    items: string[];
     outro: string;
   };
+  emphasis: string;
   share: {
     sectionTitle: string;
-    body: string;
     domain: string;
     hint: string;
     copied: string;
@@ -93,9 +64,11 @@ export interface Copy {
   };
   footer: {
     lines: string[];
-    note: string;
   };
   languageSwitcher: {
+    /** Accessible name of the select. */
     label: string;
+    /** The line printed next to it: "Prefer another language?" */
+    prompt: string;
   };
 }

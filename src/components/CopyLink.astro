@@ -26,54 +26,55 @@ const { domain, hint, copied, copyLabel } = Astro.props;
 </div>
 
 <style>
-  .copy {
-    margin-top: 24px;
-  }
-
   .copy__button {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
     width: 100%;
-    padding: 22px 20px;
-    border: 0;
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: -20px 20px 60px #d9d9d9, 20px -20px 60px #fff;
+    padding: 1.25rem 1.25rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 4px;
+    background: transparent;
     color: inherit;
     font: inherit;
-    text-align: center;
+    text-align: start;
     cursor: pointer;
   }
 
+  .copy__button:hover {
+    border-color: var(--slop-deep);
+  }
+
   .copy__domain {
-    display: block;
-    font-size: 34px;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
     line-height: 1.1;
     color: var(--ink);
     overflow-wrap: anywhere;
   }
 
   .copy__hint {
-    display: block;
-    margin-top: 8px;
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--link);
+    font-size: 0.875rem;
+    color: var(--muted);
   }
 
-  .copy__button:hover .copy__hint {
-    text-decoration: underline;
+  /* Copied: the whole box fills with the accent, no fade, no transition. The
+     state speaks for itself. */
+  .copy__button.is-copied {
+    background: var(--slop);
+    border-color: var(--slop-deep);
   }
 
   .copy__button.is-copied .copy__hint {
     color: var(--slop-deep);
     font-weight: 700;
-    text-decoration: none;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 30rem) {
     .copy__domain {
-      font-size: 24px;
+      font-size: 1.375rem;
     }
   }
 </style>

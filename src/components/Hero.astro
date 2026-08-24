@@ -2,14 +2,12 @@
 interface Props {
   title: string;
   subtitle: string;
-  lead: string;
 }
 
-const { title, subtitle, lead } = Astro.props;
+const { title, subtitle } = Astro.props;
 ---
 
 <div class="hero">
   <h1 class="name">{title}</h1>
   <span class="subtitle">{subtitle}</span>
-  <p class="lead">{lead}</p>
 </div>

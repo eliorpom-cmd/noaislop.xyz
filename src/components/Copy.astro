@@ -1,13 +1,47 @@
 ---
-// Renders one string of copy. Text between double asterisks becomes bold.
-// That is the whole markup language: translators never touch HTML, and nothing
-// from the locale files is ever injected as raw markup.
+// Renders one string of copy. Text between double asterisks becomes bold, and
+// [label](https://url) becomes a link. That is the whole markup language:
+// translators never touch HTML, and nothing from the locale files is ever
+// injected as raw markup.
 interface Props {
   text: string;
 }
 
+interface Token {
+  text: string;
+  bold: boolean;
+  href?: string;
+}
+
 const { text } = Astro.props;
-const parts = text.split('**').map((chunk, index) => ({ chunk, bold: index % 2 === 1 }));
+
+const LINK = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+
+/** Only these schemes become a link. Anything else stays plain text. */
+function safeHref(url: string): string | undefined {
+  return /^(https?:\/\/|mailto:|\/)/.test(url) ? url : undefined;
+}
+
+const tokens: Token[] = [];
+
+text.split('**').forEach((chunk, index) => {
+  const bold = index % 2 === 1;
+  let cursor = 0;
+
+  for (const match of chunk.matchAll(LINK)) {
+    const start = match.index ?? 0;
+    if (start > cursor) tokens.push({ text: chunk.slice(cursor, start), bold });
+    tokens.push({ text: match[1], bold, href: safeHref(match[2]) });
+    cursor = start + match[0].length;
+  }
+
+  if (cursor < chunk.length) tokens.push({ text: chunk.slice(cursor), bold });
+});
 ---
 
-{parts.map(({ chunk, bold }) => (bold ? <strong>{chunk}</strong> : <Fragment>{chunk}</Fragment>))}
+{
+  tokens.map(({ text: value, bold, href }) => {
+    const inner = href ? <a href={href}>{value}</a> : <Fragment>{value}</Fragment>;
+    return bold ? <strong>{inner}</strong> : inner;
+  })
+}

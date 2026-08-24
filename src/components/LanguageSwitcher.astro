@@ -1,4 +1,8 @@
 ---
+// A menu of our own, not the operating system's: a <details> disclosure with a
+// panel of links. It opens without JavaScript, it takes as many languages as we
+// add, and it is drawn with the same hairlines and the same lime as the rest of
+// the page.
 import { getCopy, localePath } from '../i18n/utils';
 import { locales } from '../i18n/config';
 
@@ -8,62 +12,133 @@ interface Props {
 }
 
 const { locale, label } = Astro.props;
+
+const options = locales.map((code) => ({
+  code,
+  path: localePath(code),
+  label: getCopy(code).meta.label,
+}));
+
+const current = options.find((option) => option.code === locale) ?? options[0];
 ---
 
-<nav class="langs" aria-label={label}>
-  {
-    locales.map((code, index) => (
-      <>
-        {index > 0 && (
-          <span class="langs__sep" aria-hidden="true">
-            /
-          </span>
-        )}
+<details class="lang" data-lang-menu>
+  <summary aria-label={label}>
+    <span>{current.label}</span>
+    <span class="lang__caret" aria-hidden="true"></span>
+  </summary>
+
+  <div class="lang__menu">
+    {
+      options.map((option) => (
         <a
-          href={localePath(code)}
-          hreflang={code}
-          lang={code}
-          data-lang={code}
-          aria-current={code === locale ? 'page' : undefined}
+          href={option.path}
+          hreflang={option.code}
+          lang={option.code}
+          data-lang={option.code}
+          aria-current={option.code === locale ? 'page' : undefined}
         >
-          {getCopy(code).meta.label}
+          {option.label}
         </a>
-      </>
-    ))
-  }
-</nav>
+      ))
+    }
+  </div>
+</details>
 
 <style>
-  .langs {
+  .lang {
+    position: relative;
+  }
+
+  summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2px 0;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--slop-mid);
+    text-underline-offset: 0.2em;
+  }
+
+  /* The caret, drawn rather than borrowed from the system. */
+  .lang__caret {
+    width: 0;
+    height: 0;
+    border-inline: 4px solid transparent;
+    border-block-start: 5px solid var(--slop-mid);
+  }
+
+  .lang[open] .lang__caret {
+    rotate: 180deg;
+  }
+
+  .lang__menu {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: calc(100% + 6px);
+    z-index: 2;
     display: flex;
-    align-items: baseline;
-    gap: 7px;
-    font-size: 16px;
+    flex-direction: column;
+    min-width: max(100%, 9rem);
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 4px;
+    background: var(--bg);
+    border: 1px solid var(--rule-strong);
   }
 
-  .langs__sep {
-    color: #c9c9c9;
+  .lang__menu a {
+    padding: 5px 10px;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
   }
 
-  .langs a[aria-current='page'] {
+  .lang__menu a:hover {
+    background: var(--slop);
+    color: var(--ink);
+  }
+
+  .lang__menu a[aria-current="page"] {
     color: var(--ink);
     font-weight: 700;
-  }
-
-  .langs a[aria-current='page']:hover {
-    text-decoration: none;
   }
 </style>
 
 <script>
-  // Remember the language the reader picked, so the automatic redirect on the
-  // canonical page never overrides a deliberate choice.
-  document.querySelectorAll<HTMLAnchorElement>('.langs a[data-lang]').forEach((link) => {
-    link.addEventListener('click', () => {
-      try {
-        localStorage.setItem('noaislop:lang', link.dataset.lang ?? '');
-      } catch {
-        /* private mode, nothing to do */
+  document.querySelectorAll<HTMLDetailsElement>('[data-lang-menu]').forEach((menu) => {
+    // Remember the language the reader picked, so the automatic redirect on the
+    // canonical page never overrides a deliberate choice.
+    menu.querySelectorAll<HTMLAnchorElement>('a[data-lang]').forEach((link) => {
+      link.addEventListener('click', () => {
+        try {
+          localStorage.setItem('noaislop:lang', link.dataset.lang ?? '');
+        } catch {
+          /* private mode, nothing to do */
+        }
+      });
+    });
+
+    // A menu left open when you look elsewhere is a menu that is in the way.
+    document.addEventListener('click', (event) => {
+      if (menu.open && !menu.contains(event.target as Node)) menu.open = false;
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
       }
     });
   });

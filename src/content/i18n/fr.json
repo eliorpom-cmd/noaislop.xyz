@@ -8,9 +8,8 @@
     "description": "Une page à envoyer à quelqu’un qui vient de publier du slop. Ce site ne parle pas d’IA, il parle d’effort.",
     "ogTitle": "your AI slop sucks.",
     "ogDescription": "Quelqu’un t’a envoyé ce lien. Ce n’est pas un hasard.",
-    "ogImageAlt": "Le mot SLOP tamponné sur une réponse d’IA floutée."
+    "ogImageAlt": "Le mot SLOP tamponné sur le titre de la page."
   },
-  "banner": "Quelqu’un t’a envoyé ce lien. Ce n’est pas un hasard.",
   "hero": {
     "h1": "your AI slop sucks.",
     "subtitle": "non mais vraiment."
@@ -22,118 +21,54 @@
     "text": "Contenu numérique de faible qualité, produit généralement en quantité au moyen de l’intelligence artificielle.",
     "source": "Merriam-Webster, mot de l’année 2025",
     "body": [
-      "Tout contenu généré par IA n’est pas du slop. Ça devient du slop quand c’est **produit sans réfléchir et imposé à des gens qui n’ont rien demandé**.",
-      "**Ce site ne parle pas d’IA. Il parle d’effort.**"
+      "Tout contenu généré par IA n’est pas du slop. Ça devient du slop quand **personne n’y a réfléchi** et que c’est balancé à des gens qui n’ont rien demandé."
     ]
   },
   "dont": {
     "sectionTitle": "Ne fais pas ça",
     "stamp": "SLOP",
-    "chrome": {
-      "assistant": "Assistant",
-      "composer": "Écris à l’assistant"
-    },
-    "cards": [
-      {
-        "prompt": "crée-moi un flyer pour mon événement",
-        "kind": "image",
-        "alt": "Une fenêtre de chat. La personne demande, en une ligne, un flyer pour son événement. L’image qui revient est floutée et tamponnée SLOP."
-      },
-      {
-        "prompt": "écris un post LinkedIn motivant sur le café du matin",
-        "kind": "text",
-        "alt": "Une fenêtre de chat. La personne demande, en une ligne, un post LinkedIn motivant sur le café du matin. La réponse est floutée et tamponnée SLOP.",
-        "reply": [
-          "Ce matin, je me suis servi une tasse de café. Et elle m’a tout appris sur le leadership.",
-          "Voici les cinq leçons qui ont changé ma façon de construire des équipes, une gorgée à la fois.",
-          "Et vous, quel est votre rituel du matin ? Dites-le moi en commentaire."
-        ]
-      },
-      {
-        "prompt": "fais une vidéo de chat qui danse à Koh-Lanta",
-        "kind": "video",
-        "alt": "Une fenêtre de chat. La personne demande, en une ligne, une vidéo de chat qui danse à Koh-Lanta. La vidéo qui revient est floutée et tamponnée SLOP."
-      }
+    "prompts": [
+      "crée-moi un flyer pour mon événement",
+      "écris un post LinkedIn motivant sur le café du matin",
+      "génère-moi une vidéo d’un chat qui dit « bonne journée »"
     ],
-    "caption": "**Une ligne de prompt. Aucune décision prise. Publication directe.**"
-  },
-  "cost": {
-    "sectionTitle": "Pourquoi ça dérange",
-    "lede": "Tu as gagné quatre minutes. **Tout le monde les paie.**",
-    "items": [
-      {
-        "title": "Le feed est fini.",
-        "text": "Chaque post slop fait descendre quelque chose que quelqu’un a vraiment fabriqué."
-      },
-      {
-        "title": "Tu dépenses notre attention, pas la tienne.",
-        "text": "Cent personnes le lisent. Des heures de temps collectif, sur un truc auquel personne n’a réfléchi."
-      },
-      {
-        "title": "Le slop se reconnaît.",
-        "text": "Une fois qu’on l’a repéré chez toi, on lit différemment tout ce que tu publies."
-      },
-      {
-        "title": "Personne ne te doit une lecture.",
-        "text": "L’attention se donne, elle ne se prend pas."
-      }
+    "lede": "Tu as gagné 10 minutes. **Tout le monde les paie.**",
+    "body": [
+      "Chaque post slop enterre quelque chose que quelqu’un a vraiment fabriqué. Et une fois qu’on repère du slop chez toi, on lit différemment tout ce que tu publies. Y compris le bon."
     ]
   },
   "standards": {
     "sectionTitle": "Fais plutôt ça",
     "body": [
-      "L’IA est un outil. Fais des brouillons avec, gagne du temps sur les tâches ingrates. Mais **ce que tu publies devrait contenir du jus de cerveau**."
+      "Utilise l’IA pour brouillonner, pour aller plus vite sur les tâches ingrates, pour tester une idée. Très bien. **Mets juste quelque chose de toi dans ce que tu publies.**"
     ],
     "blocks": [
       {
-        "title": "Texte",
-        "items": [
-          "L’idée vient de toi.",
-          "Tu l’as relu, et tu l’as réécrit.",
-          "Pas de « ce n’est pas X, c’est Y ». Pas de tirets cadratins. Pas de « plongeons dans le vif du sujet ».",
-          "Tu peux défendre chaque affirmation."
-        ]
+        "title": "Texte :",
+        "text": "Ton idée. Relu, réécrit, tics d’IA enlevés. Tu peux défendre chaque affirmation."
       },
       {
-        "title": "Images",
-        "items": [
-          "Tu as écrit un vrai brief, pas une ligne.",
-          "Tu as donné des références. Un croquis, un moodboard, une photo que tu as prise.",
-          "Tu as itéré. Le premier output n’est jamais le bon."
-        ]
+        "title": "Images :",
+        "text": "Un vrai brief, des références, un style nommé. Pas une ligne et le premier résultat."
       },
       {
-        "title": "Vidéo",
-        "items": [
-          "L’IA fait un plan que tu ne pouvais pas tourner, à l’intérieur d’un truc que tu as réellement fabriqué.",
-          "Pas : prompt, téléchargement, publication."
-        ]
+        "title": "Vidéo :",
+        "text": "L’IA fait un plan que tu ne pouvais pas tourner, à l’intérieur d’un truc que tu as vraiment fabriqué."
       }
     ]
   },
-  "emphasis": "Si tu ne mets pas de toi dans la création de ce que tu postes, pourquoi devrait-on se fatiguer à le lire ?",
   "test": {
     "sectionTitle": "Le test",
-    "intro": "Avant de publier, trois questions.",
     "items": [
-      {
-        "question": "Tu l’as lu en entier ?",
-        "text": "En entier. Pas en diagonale."
-      },
-      {
-        "question": "Tu peux le défendre ?",
-        "text": "À voix haute, face à quelqu’un qui n’est pas d’accord."
-      },
-      {
-        "question": "Tu l’aurais publié s’il avait fallu le faire à la main ?",
-        "text": "Si non, l’idée ne valait pas la peine."
-      }
+      "Tu l’as lu en entier ?",
+      "Tu peux le défendre ?",
+      "Tu l’aurais publié s’il avait fallu le faire à la main ?"
     ],
     "outro": "**Trois oui, tu publies. Sinon c’est du slop.**"
   },
+  "emphasis": "Si tu ne mets rien de toi dans ce que tu postes, pourquoi devrait-on se fatiguer à le lire ?",
   "share": {
     "sectionTitle": "Envoie ça à quelqu’un",
-    "body": "Une affiche avec six doigts dessus ? Un post LinkedIn sur le café du matin ? **Envoie le lien plutôt que le commentaire que tu allais écrire.**",
     "domain": "noaislop.xyz",
     "hint": "clique pour copier",
     "copied": "copié",
@@ -141,12 +76,13 @@
   },
   "footer": {
     "lines": [
-      "Cousin spirituel de nohello.net, dontasktoask.com et dontpastetheai.com.",
-      "Écrit par un humain, relu par un humain. Domaine public, fais-en ce que tu veux."
-    ],
-    "note": "Si quelqu’un t’a envoyé ce lien : il ne dit pas que tu es mauvais. Il aurait aimé voir ce que toi, tu aurais fait."
+      "Cousin spirituel de [nohello.net](https://nohello.net), [dontasktoask.com](https://dontasktoask.com) et [dontpastetheai.com](https://dontpastetheai.com).",
+      "Écrit par un humain, relu par un humain, défendu par un humain.",
+      "PRs et traductions bienvenues sur [GitHub](https://github.com/eliorpom-cmd/noaislop.xyz). Domaine public."
+    ]
   },
   "languageSwitcher": {
+    "prompt": "Tu préfères une autre langue ?",
     "label": "Langue"
   }
 }

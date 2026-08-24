@@ -6,17 +6,26 @@ interface Props {
 const { quote } = Astro.props;
 ---
 
-<p class="lead pull">{quote}</p>
+<blockquote class="pull">
+  <p>{quote}</p>
+</blockquote>
 
 <style>
   .pull {
-    margin: 0 0 120px;
-    max-width: 900px;
+    padding-block: 3.25rem;
   }
 
-  @media (max-width: 768px) {
+  .pull p {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 5.5vw, 2rem);
+    line-height: 1.15;
+    color: var(--slop-mid);
+    text-wrap: balance;
+  }
+
+  @media (max-width: 30rem) {
     .pull {
-      margin-bottom: 70px;
+      padding-block: 2.5rem;
     }
   }
 </style>

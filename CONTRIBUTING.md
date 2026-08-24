@@ -12,12 +12,12 @@ send is released under [CC0](LICENSE) too.
    with the name of the language written in that language ("Deutsch", not
    "German"). Set `meta.ogLocale` too: `de_DE`, `es_ES`.
 3. **Translate every value.** Keep every key, keep the structure. Do not
-   translate the keys. Text between double asterisks is bold: `**like this**`.
-   Move the asterisks to whatever carries the point in your language, that is
-   the only markup there is. `dont.cards[].reply` is the fake blurred answer, it
-   is hidden from screen readers, translate it loosely or not at all. Leave
-   `dont.cards[].kind` alone, it picks the blurred reply: text, image or video.
-   Never translate `share.domain`.
+   translate the keys. Text between double asterisks is bold: `**like this**`,
+   and `[label](https://url)` is a link. Move the asterisks to whatever carries
+   the point in your language, that is the only markup there is. `dont.prompts`
+   are the one line prompts stamped SLOP: rewrite them so they sound like
+   something someone would actually type in your language, a local reference
+   beats a literal translation. Never translate `share.domain` or `dont.stamp`.
 4. **Run `npm run check` and `npm run build`.** A missing key, or a `meta.lang`
    that does not match the file name, fails the build. That is on purpose.
 5. **Open a pull request.** Look at your page at `/{code}/` first.
