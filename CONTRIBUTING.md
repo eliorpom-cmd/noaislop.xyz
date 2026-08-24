@@ -30,7 +30,7 @@ has to do that.
 - Keep it short. Someone who was just sent this link will not read three
   screens. If your translation runs longer than the English, cut it.
 - Second person, plain words, short sentences. Do not lecture.
-- Keep `hero.h1` in English: "your AI slop sucks." is the name of the site.
+
 - Use your language's real typography: guillemets in French, proper apostrophes
   everywhere.
 
