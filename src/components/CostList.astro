@@ -1,0 +1,56 @@
+---
+import type { CostItem } from '../i18n/types';
+
+interface Props {
+  items: CostItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<dl class="costs">
+  {
+    items.map((item) => (
+      <div class="costs__item">
+        <dt>{item.title}</dt>
+        <dd>{item.text}</dd>
+      </div>
+    ))
+  }
+</dl>
+
+<style>
+  /* Run-in headings: the title starts the sentence, printed-page style. */
+  .costs__item {
+    position: relative;
+    padding-inline-start: 1.5rem;
+  }
+
+  .costs__item + .costs__item {
+    margin-block-start: 0.9rem;
+  }
+
+  .costs__item::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.62em;
+    width: 9px;
+    height: 9px;
+    background: var(--slop);
+  }
+
+  dt,
+  dd {
+    display: inline;
+    margin: 0;
+  }
+
+  dt {
+    font-weight: 700;
+  }
+
+  dd::before {
+    content: " ";
+  }
+</style>

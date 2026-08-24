@@ -1,0 +1,64 @@
+---
+import { getCopy, localePath } from '../i18n/utils';
+import { locales } from '../i18n/config';
+
+interface Props {
+  locale: string;
+  label: string;
+}
+
+const { locale, label } = Astro.props;
+---
+
+<nav class="langs" aria-label={label}>
+  {
+    locales.map((code, index) => (
+      <>
+        {index > 0 && <span class="langs__sep" aria-hidden="true">/</span>}
+        <a
+          href={localePath(code)}
+          hreflang={code}
+          lang={code}
+          data-lang={code}
+          aria-current={code === locale ? 'page' : undefined}
+        >
+          {getCopy(code).meta.label}
+        </a>
+      </>
+    ))
+  }
+</nav>
+
+<style>
+  .langs {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+  }
+
+  .langs__sep {
+    color: var(--rule);
+  }
+
+  .langs a[aria-current='page'] {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: none;
+  }
+</style>
+
+<script>
+  // Remember the language the reader picked, so the automatic redirect on the
+  // canonical page never overrides a deliberate choice.
+  document.querySelectorAll<HTMLAnchorElement>('.langs a[data-lang]').forEach((link) => {
+    link.addEventListener('click', () => {
+      try {
+        localStorage.setItem('noaislop:lang', link.dataset.lang ?? '');
+      } catch {
+        /* private mode, nothing to do */
+      }
+    });
+  });
+</script>

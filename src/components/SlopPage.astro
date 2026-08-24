@@ -1,0 +1,95 @@
+---
+// The whole page, shared by every locale route. Everything it renders comes
+// from src/content/i18n/{locale}.json, never from hardcoded strings.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CopyLink from './CopyLink.astro';
+import CostList from './CostList.astro';
+import DefinitionCard from './DefinitionCard.astro';
+import EmphasisBox from './EmphasisBox.astro';
+import Footer from './Footer.astro';
+import Hero from './Hero.astro';
+import PromptCard from './PromptCard.astro';
+import Standards from './Standards.astro';
+import TestList from './TestList.astro';
+import TopBanner from './TopBanner.astro';
+import { getCopy } from '../i18n/utils';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const copy = getCopy(locale);
+---
+
+<BaseLayout locale={locale}>
+  <TopBanner text={copy.banner} locale={locale} switcherLabel={copy.languageSwitcher.label} />
+
+  <main>
+    <div class="wrap">
+      <Hero title={copy.hero.h1} subtitle={copy.hero.subtitle} />
+
+      <section class="section" aria-labelledby="definition">
+        <h2 class="section-title" id="definition">{copy.definition.sectionTitle}</h2>
+        <DefinitionCard
+          word={copy.definition.word}
+          partOfSpeech={copy.definition.partOfSpeech}
+          text={copy.definition.text}
+          source={copy.definition.source}
+        />
+        {copy.definition.body.map((paragraph) => <p>{paragraph}</p>)}
+      </section>
+
+      <section class="section" aria-labelledby="dont">
+        <h2 class="section-title" id="dont">{copy.dont.sectionTitle}</h2>
+        {
+          copy.dont.cards.map((card, index) => (
+            <PromptCard card={card} stamp={copy.dont.stamp} index={index} />
+          ))
+        }
+        <p class="caption">{copy.dont.caption}</p>
+      </section>
+
+      <section class="section" aria-labelledby="cost">
+        <h2 class="section-title" id="cost">{copy.cost.sectionTitle}</h2>
+        <p class="lede">{copy.cost.lede}</p>
+        <CostList items={copy.cost.items} />
+      </section>
+
+      <section class="section" aria-labelledby="standards">
+        <h2 class="section-title" id="standards">{copy.standards.sectionTitle}</h2>
+        {copy.standards.body.map((paragraph) => <p>{paragraph}</p>)}
+        <Standards blocks={copy.standards.blocks} />
+      </section>
+
+      <EmphasisBox quote={copy.emphasis} />
+
+      <section class="section" aria-labelledby="test">
+        <h2 class="section-title" id="test">{copy.test.sectionTitle}</h2>
+        <p>{copy.test.intro}</p>
+        <TestList items={copy.test.items} />
+        <p class="lede">{copy.test.outro}</p>
+      </section>
+
+      <section class="section" aria-labelledby="share">
+        <h2 class="section-title" id="share">{copy.share.sectionTitle}</h2>
+        <p>{copy.share.body}</p>
+        <CopyLink
+          domain={copy.share.domain}
+          hint={copy.share.hint}
+          copied={copy.share.copied}
+          copyLabel={copy.share.copyLabel}
+        />
+      </section>
+    </div>
+  </main>
+
+  <Footer lines={copy.footer.lines} note={copy.footer.note} />
+</BaseLayout>
+
+<style>
+  .caption {
+    margin-block-start: 1.5rem;
+    font-weight: 650;
+  }
+</style>

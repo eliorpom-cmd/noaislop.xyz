@@ -1,0 +1,141 @@
+---
+interface Props {
+  domain: string;
+  hint: string;
+  copied: string;
+  copyLabel: string;
+}
+
+const { domain, hint, copied, copyLabel } = Astro.props;
+---
+
+<div class="copy">
+  <button
+    class="copy__button"
+    type="button"
+    aria-label={copyLabel}
+    data-copy
+    data-value={domain}
+    data-copied={copied}
+    data-hint={hint}
+  >
+    <span class="copy__domain">{domain}</span>
+    <span class="copy__hint" data-copy-hint>{hint}</span>
+  </button>
+  <span class="visually-hidden" role="status" aria-live="polite" data-copy-status></span>
+</div>
+
+<style>
+  .copy {
+    margin-block-start: 1.5rem;
+  }
+
+  .copy__button {
+    display: block;
+    width: 100%;
+    padding: 1.1rem 1rem;
+    border: 2px solid var(--link);
+    background: var(--paper);
+    color: inherit;
+    font: inherit;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .copy__button:hover {
+    background: var(--link-wash);
+  }
+
+  .copy__domain {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+
+  .copy__hint {
+    display: block;
+    margin-block-start: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--link);
+  }
+
+  .copy__button.is-copied {
+    border-color: var(--slop-mid);
+    background: var(--slop-wash);
+  }
+
+  .copy__button.is-copied .copy__hint {
+    color: var(--slop-deep);
+  }
+
+  @media (max-width: 30rem) {
+    .copy__domain {
+      font-size: 1.4375rem;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+    const hintEl = button.querySelector<HTMLElement>('[data-copy-hint]');
+    const status = button.parentElement?.querySelector<HTMLElement>('[data-copy-status]');
+    const value = button.dataset.value ?? '';
+    const copiedLabel = button.dataset.copied ?? '';
+    const hintLabel = button.dataset.hint ?? '';
+    let timer: number | undefined;
+
+    // Older browsers, and any context where the async clipboard API refuses
+    // (unfocused document, permission denied), still get a working button.
+    function legacyCopy(text: string) {
+      const field = document.createElement('textarea');
+      field.value = text;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.append(field);
+      field.select();
+      let copied = false;
+      try {
+        copied = document.execCommand('copy');
+      } catch {
+        copied = false;
+      }
+      field.remove();
+      return copied;
+    }
+
+    async function write(text: string) {
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      } catch {
+        /* fall through to the legacy path */
+      }
+      return legacyCopy(text);
+    }
+
+    button.addEventListener('click', async () => {
+      const copiedOk = await write(value);
+      if (!copiedOk) return;
+      if (hintEl) hintEl.textContent = copiedLabel;
+      if (status) status.textContent = copiedLabel;
+      button.classList.add('is-copied');
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        if (hintEl) hintEl.textContent = hintLabel;
+        if (status) status.textContent = '';
+        button.classList.remove('is-copied');
+      }, 2400);
+    });
+  });
+</script>

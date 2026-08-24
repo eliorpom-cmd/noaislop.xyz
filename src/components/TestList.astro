@@ -1,0 +1,51 @@
+---
+import type { TestItem } from '../i18n/types';
+
+interface Props {
+  items: TestItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="test">
+  {
+    items.map((item) => (
+      <li>
+        <strong>{item.question}</strong> {item.text}
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  /* Numerals hang in the margin, like a numbered list in a book. */
+  .test {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: test;
+  }
+
+  li {
+    counter-increment: test;
+    position: relative;
+    padding-inline-start: 2.25rem;
+  }
+
+  li + li {
+    margin-block-start: 0.9rem;
+  }
+
+  li::before {
+    content: counter(test) ".";
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.06em;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--slop-deep);
+    font-variant-numeric: tabular-nums;
+  }
+</style>

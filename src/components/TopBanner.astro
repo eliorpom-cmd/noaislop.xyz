@@ -1,0 +1,78 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { localePath } from '../i18n/utils';
+
+interface Props {
+  text: string;
+  locale: string;
+  switcherLabel: string;
+}
+
+const { text, locale, switcherLabel } = Astro.props;
+---
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="masthead__name" href={localePath(locale)}>
+      <span class="masthead__mark" aria-hidden="true">🤮</span>noaislop.xyz
+    </a>
+    <LanguageSwitcher locale={locale} label={switcherLabel} />
+  </div>
+</header>
+
+<p class="notice">
+  <span class="wrap">{text}</span>
+</p>
+
+<style>
+  .masthead {
+    border-block-end: 1px solid var(--rule);
+  }
+
+  .masthead__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    padding-block: 0.7rem;
+  }
+
+  .masthead__name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .masthead__name:hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--slop-mid);
+    text-decoration-thickness: 2px;
+  }
+
+  .masthead__mark {
+    font-size: 1.125rem;
+    line-height: 1;
+  }
+
+  .notice {
+    border-block-end: 1px solid var(--rule);
+    background: var(--slop-wash);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .notice .wrap {
+    display: block;
+    padding-block: 0.55rem;
+  }
+</style>

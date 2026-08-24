@@ -1,0 +1,55 @@
+---
+interface Props {
+  word: string;
+  partOfSpeech: string;
+  text: string;
+  source: string;
+}
+
+const { word, partOfSpeech, text, source } = Astro.props;
+---
+
+<figure class="entry">
+  <dl>
+    <dt>
+      <b class="entry__word">{word}</b>
+      <i class="entry__pos">({partOfSpeech})</i>
+    </dt>
+    <dd>{text}</dd>
+  </dl>
+  <figcaption class="entry__source label">{source}</figcaption>
+</figure>
+
+<style>
+  .entry {
+    padding-inline-start: 1.25rem;
+    border-inline-start: 3px solid var(--slop);
+  }
+
+  dt {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-size: 1.25rem;
+  }
+
+  .entry__word {
+    font-weight: 700;
+  }
+
+  .entry__pos {
+    font-style: normal;
+    color: var(--ink-faint);
+    font-size: 1rem;
+  }
+
+  dd {
+    margin-block-start: 0.2rem;
+  }
+
+  .entry__source {
+    margin-block-start: 0.75rem;
+    color: var(--ink-faint);
+  }
+</style>

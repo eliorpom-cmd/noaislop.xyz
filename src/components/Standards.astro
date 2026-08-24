@@ -1,0 +1,49 @@
+---
+import type { StandardsBlock } from '../i18n/types';
+
+interface Props {
+  blocks: StandardsBlock[];
+}
+
+const { blocks } = Astro.props;
+---
+
+<div class="standards">
+  {
+    blocks.map((block) => (
+      <section class="standards__block">
+        <h3 class="label standards__title">{block.title}</h3>
+        <ul>
+          {block.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .standards__block + .standards__block {
+    margin-block-start: 1.75rem;
+  }
+
+  .standards__title {
+    padding-block-end: 0.35rem;
+    border-block-end: 1px solid var(--rule);
+  }
+
+  ul {
+    margin-block-start: 0.7rem;
+    padding-inline-start: 1.1rem;
+    list-style: square;
+  }
+
+  li + li {
+    margin-block-start: 0.45rem;
+  }
+
+  li::marker {
+    color: var(--slop-mid);
+  }
+</style>

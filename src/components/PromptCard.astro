@@ -1,0 +1,305 @@
+---
+import type { PromptCard } from '../i18n/types';
+
+interface Props {
+  card: PromptCard;
+  stamp: string;
+  index: number;
+}
+
+const { card, stamp, index } = Astro.props;
+
+// Hand-set per card. A stamp pressed three times is never pressed the same way.
+const presses = [
+  { angle: -7, offsetX: -4, offsetY: 0 },
+  { angle: -3, offsetX: 6, offsetY: 4 },
+  { angle: -10, offsetX: 0, offsetY: -2 },
+];
+const press = presses[index % presses.length];
+
+// The stamp lands on the middle of the answer, and the answer is not always
+// the full width of the column.
+const centres = { text: '50%', image: '30%', video: '48%' };
+const centre = centres[card.kind];
+---
+
+<figure class="card">
+  <!-- role="img" + aria-label: the whole reconstruction is announced as one
+       alternative text, so none of the blurred filler is read out. -->
+  <div class="mock" role="img" aria-label={card.alt}>
+    <p class="bubble bubble--user">{card.prompt}</p>
+
+    <div class="reply">
+      {
+        card.kind === 'text' && (
+          <div class="bubble bubble--reply" aria-hidden="true">
+            {(card.reply ?? []).map((line) => (
+              <p>{line}</p>
+            ))}
+          </div>
+        )
+      }
+
+      {
+        card.kind === 'image' && (
+          <div class="bubble bubble--media bubble--poster" aria-hidden="true">
+            <span class="frame frame--poster">
+              <span class="poster__disc" />
+              <span class="poster__hill" />
+              <span class="poster__band" />
+              <span class="poster__bar" />
+              <span class="poster__bar poster__bar--short" />
+            </span>
+          </div>
+        )
+      }
+
+      {
+        card.kind === 'video' && (
+          <div class="bubble bubble--media bubble--video" aria-hidden="true">
+            <span class="frame frame--still">
+              <span class="still__glow" />
+              <span class="still__subject" />
+              <span class="still__floor" />
+            </span>
+            <span class="player">
+              <span class="player__play" />
+              <span class="player__track" />
+            </span>
+          </div>
+        )
+      }
+
+      <span
+        class:list={['stamp', card.kind === 'text' && 'stamp--soaked']}
+        aria-hidden="true"
+        style={`--angle:${press.angle}deg;--dx:${press.offsetX}px;--dy:${press.offsetY}px;--cx:${centre}`}
+      >
+        {stamp}
+      </span>
+    </div>
+  </div>
+</figure>
+
+<style>
+  .card + .card {
+    margin-block-start: 1rem;
+  }
+
+  .mock {
+    padding: 1rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-tint);
+  }
+
+  .bubble {
+    padding: 0.6rem 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .bubble--user {
+    max-width: 90%;
+    margin-inline-start: auto;
+    background: var(--link-wash);
+    border: 1px solid #c9d0f2;
+    border-radius: 12px 12px 3px 12px;
+  }
+
+  .reply {
+    position: relative;
+    margin-block-start: 0.75rem;
+  }
+
+  .bubble--reply {
+    max-width: 94%;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 12px 12px 12px 3px;
+    color: var(--ink-soft);
+    filter: blur(3.6px);
+    user-select: none;
+  }
+
+  .bubble--reply p + p {
+    margin-block-start: 0.55rem;
+  }
+
+  /* Image and video answers: a blurred picture, not blurred prose. --------- */
+
+  .bubble--media {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    border-radius: 12px 12px 12px 3px;
+  }
+
+  .bubble--poster {
+    width: 58%;
+    aspect-ratio: 4 / 5;
+  }
+
+  .bubble--video {
+    width: 92%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .frame {
+    position: absolute;
+    inset: 0;
+    /* Scaled up so the blur never drags the edges into view. */
+    scale: 1.12;
+    filter: blur(7px);
+  }
+
+  .frame span {
+    position: absolute;
+  }
+
+  /* The default look of a machine that was asked for nothing in particular. */
+  .frame--poster {
+    background: linear-gradient(165deg, #7b57f0 0%, #d4508f 48%, #f2a53c 100%);
+  }
+
+  .poster__disc {
+    inset-inline-start: 50%;
+    inset-block-start: 18%;
+    translate: -50% 0;
+    width: 38%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #ffe9b8;
+  }
+
+  .poster__hill {
+    inset-inline: -12%;
+    inset-block-end: 24%;
+    height: 36%;
+    border-radius: 50% 50% 0 0;
+    background: #3b1f6e;
+  }
+
+  .poster__band {
+    inset-inline: 0;
+    inset-block-end: 0;
+    height: 26%;
+    background: #1d1030;
+  }
+
+  .poster__bar {
+    inset-inline-start: 9%;
+    inset-block-end: 15%;
+    width: 62%;
+    height: 7%;
+    border-radius: 2px;
+    background: #ffd166;
+  }
+
+  .poster__bar--short {
+    inset-block-end: 6%;
+    width: 38%;
+    height: 5%;
+    background: #c9b8ea;
+  }
+
+  .frame--still {
+    background: linear-gradient(180deg, #13334f 0%, #1f6f7d 62%, #2fa38a 100%);
+  }
+
+  .still__glow {
+    inset-inline-start: 24%;
+    inset-block-start: 8%;
+    width: 34%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #cdf3e4;
+    opacity: 0.55;
+  }
+
+  .still__subject {
+    inset-inline-start: 38%;
+    inset-block-end: 16%;
+    width: 24%;
+    height: 52%;
+    border-radius: 46% 46% 26% 26%;
+    background: #0f1f2c;
+  }
+
+  .still__floor {
+    inset-inline: 0;
+    inset-block-end: 0;
+    height: 18%;
+    background: #0c1a24;
+  }
+
+  /* Player chrome stays sharp: that is what says "this is a video". */
+  .player {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    background: rgb(9 14 19 / 0.72);
+  }
+
+  .player__play {
+    width: 0;
+    height: 0;
+    border-inline-start: 9px solid #fff;
+    border-block: 6px solid transparent;
+  }
+
+  .player__track {
+    position: relative;
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    background: rgb(255 255 255 / 0.35);
+  }
+
+  .player__track::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 38%;
+    border-radius: 2px;
+    background: #fff;
+  }
+
+  /* Stamped in a face that drips on its own. Decorative, aria-hidden. */
+  .stamp {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: var(--cx);
+    translate: calc(-50% + var(--dx)) calc(-50% + var(--dy));
+    rotate: var(--angle);
+    font-family: var(--font-drip);
+    font-size: 4.5rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    color: var(--slop);
+    -webkit-text-stroke: 2px var(--slop-deep);
+  }
+
+  /* Over text the ink soaks in. Over a photo it sits on top, like a sticker. */
+  .stamp--soaked {
+    mix-blend-mode: multiply;
+  }
+
+  @media (max-width: 30rem) {
+    .stamp {
+      font-size: 3rem;
+      -webkit-text-stroke-width: 1.5px;
+    }
+
+    .bubble--poster {
+      width: 72%;
+    }
+  }
+</style>

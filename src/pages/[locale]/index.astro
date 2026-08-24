@@ -1,0 +1,16 @@
+---
+// One route per non-default locale. Adding src/content/i18n/de.json is enough
+// to get /de/ built, no file to create here.
+import SlopPage from '../../components/SlopPage.astro';
+import { DEFAULT_LOCALE, locales } from '../../i18n/config';
+
+export function getStaticPaths() {
+  return locales
+    .filter((locale) => locale !== DEFAULT_LOCALE)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<SlopPage locale={locale!} />
