@@ -1,6 +1,6 @@
 # noaislop.xyz
 
-A single page you send to someone who just published AI slop.
+A page to send to someone who published AI slop.
 
 Same family as [nohello.net](https://nohello.net),
 [dontasktoask.com](https://dontasktoask.com) and
