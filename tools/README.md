@@ -1,17 +1,18 @@
 # tools
 
-`og-image.html` is the source of `public/og-image.png` (1200x630): a plain HTML
-page, screenshotted at that size. The image holds the title in the marker face,
-in the accent green, on the page background.
+`generate-og-images.mjs` produces `public/og/{locale}.png` (1200x630), one per
+file in `src/content/i18n/`: each image is that locale's `hero.h1` in the
+marker face, in the accent green, on the page background. `BaseLayout.astro`
+points `og:image` at the file matching the page's own locale, so a link to `/`
+shares the English hero and a link to `/fr/` shares the French one.
 
-Regenerate it after an edit:
+Regenerate after editing a `hero.h1` or adding a language:
 
 ```sh
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
-  --window-size=1200,630 \
-  --screenshot=public/og-image.png \
-  "file://$PWD/tools/og-image.html"
+npm run og-images
 ```
 
-Any headless browser does the job.
+Needs a local Chrome/Chromium; the script defaults to the macOS install path
+and honors `CHROME_PATH` otherwise. `og-image.html` is the original single-image
+template the script's HTML is based on, kept as a reference for the layout and
+font-face rules.

@@ -11,7 +11,7 @@ const { locale } = Astro.props;
 const copy = getCopy(locale);
 const alternates = getAlternates();
 const canonical = localeUrl(locale);
-const ogImage = new URL('/og-image.png', SITE_URL).href;
+const ogImage = new URL(`/og/${locale}.png`, SITE_URL).href;
 const otherLocales = locales.filter((code) => code !== locale);
 const isCanonicalPage = locale === DEFAULT_LOCALE;
 ---
