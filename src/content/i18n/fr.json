@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "lang": "fr",
+    "dir": "ltr",
+    "ogLocale": "fr_FR",
+    "label": "Français",
+    "title": "noaislop.xyz | ton slop généré par IA, c’est nul.",
+    "description": "Une page à envoyer à quelqu’un qui vient de publier du slop généré par IA. Ce n'est pas une qu'estion d'outil, c'est une question d’effort.",
+    "ogTitle": "ton slop généré par IA, c’est nul.",
+    "ogDescription": "Quelqu’un t’a envoyé ce lien. C'est pas pour rien.",
+    "ogImageAlt": "Les mots « ton slop généré par IA, c’est nul. » tracés au marqueur vert sur fond blanc cassé."
+  },
+  "hero": {
+    "h1": "ton slop généré par IA, c’est nul.",
+    "subtitle": "genre, vraiment."
+  },
+  "definition": {
+    "sectionTitle": "C’est quoi, le slop ?",
+    "word": "slop",
+    "partOfSpeech": "nom",
+    "text": "Contenu numérique de mauvaise qualité, généralement produit en quantité à l’aide de l’intelligence artificielle.",
+    "source": "Merriam-Webster, mot de l’année 2025",
+    "body": [
+      "Tout contenu généré par IA n’est pas du slop. Ça devient du slop quand personne n’y a mis du sien et qu’on l’impose à des gens qui n’ont rien demandé."
+    ]
+  },
+  "dont": {
+    "sectionTitle": "Ne fais pas ça",
+    "intro": "Ce n’est pas l’outil. C’est l’usage que tu en fais.",
+    "stamp": "SLOP",
+    "prompts": [
+      "« fais-moi un flyer pour mon événement »",
+      "« écris-moi un post LinkedIn motivant sur le café du matin »",
+      "« génère-moi une vidéo d’un chat qui souhaite une bonne journée »"
+    ],
+    "lede": "Ok, tu as gagné 3 minutes… mais tous ceux qui verront le résultat en paieront le prix.",
+    "body": [
+      "Chaque post de slop enterre quelque chose qu’une personne a vraiment fait. Et une fois que les gens repèrent du slop dans ton contenu, ils regardent différemment tout ce que tu publies, même le bon."
+    ]
+  },
+  "standards": {
+    "sectionTitle": "Fais plutôt ça",
+    "body": [
+      "Utilise l’IA pour faire des brouillons, accélérer les tâches ennuyeuses, tester une idée. Mets juste quelque chose de toi dans ce que tu publies."
+    ],
+    "example": {
+      "stamp": "BIEN",
+      "prompt": "« flyer vertical. Photo que j’ai prise (ci-jointe) de l'événement de l’an dernier en fond, désaturée. Gros titre orange condensé, police sans serif, aligné à gauche, dans le tiers bas. Date et adresse sur une ligne sous le titre. »"
+    },
+    "blocks": [
+      {
+        "title": "Écriture :",
+        "text": "L’idée doit venir de toi. Elle est relue, réécrite, débarrassée des tics de langage de l’IA. Tu peux défendre chaque phrase du texte."
+      },
+      {
+        "title": "Images :",
+        "text": "Un vrai brief, des références, un style précis. Pas une ligne et le premier résultat générique qui sort."
+      },
+      {
+        "title": "Vidéo :",
+        "text": "L’IA fait un plan que tu n’aurais pas pu obtenir, intégrée à un contenu que tu as vraiment produit."
+      }
+    ]
+  },
+  "test": {
+    "sectionTitle": "Réfléchis avant de publier",
+    "items": [
+      "Tu as tout lu ?",
+      "Tu pourrais le défendre ?",
+      "Ça n’a pas ce look IA qui se voit à des kilomètres ?"
+    ],
+    "outro": "Trois oui : publie. Sinon, c’est du slop."
+  },
+  "emphasis": "Si tu ne mets rien de toi dans ce que tu publies, pourquoi devrait-on prendre la peine de le lire ?",
+  "share": {
+    "sectionTitle": "Envoie ça à quelqu’un",
+    "domain": "noaislop.xyz",
+    "hint": "clique pour copier",
+    "copied": "copié",
+    "copyLabel": "Copier noaislop.xyz dans le presse-papiers"
+  },
+  "footer": {
+    "lines": [
+      "Cousin spirituel de [nohello.net](https://nohello.net), [dontasktoask.com](https://dontasktoask.com) et [dontpastetheai.com](https://dontpastetheai.com).",
+      "Écrit par un humain, relu par un humain, défendu par un humain.",
+      "PR et traductions bienvenues sur [GitHub](https://github.com/eliorpom-cmd/noaislop.xyz)."
+    ],
+    "note": "Personne ne dit que tu ne peux pas créer. On aimerait juste voir ce que **toi**, tu fais."
+  },
+  "languageSwitcher": {
+    "prompt": "Tu préfères une autre langue ?",
+    "label": "Langue"
+  }
+}
