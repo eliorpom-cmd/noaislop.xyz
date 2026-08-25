@@ -75,6 +75,8 @@ for (const file of files) {
     execFileSync(CHROME, [
       '--headless=new',
       '--disable-gpu',
+      '--no-sandbox',
+      '--disable-dev-shm-usage',
       '--hide-scrollbars',
       '--force-device-scale-factor=1',
       '--window-size=1200,630',
