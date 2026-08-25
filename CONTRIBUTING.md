@@ -11,7 +11,9 @@ anything you send is released under [CC0](LICENSE) too.
    in that language ("Deutsch", not "German"), and `meta.ogLocale` to `de_DE`.
 3. **Translate every value, keep every key.** The only markup is `**bold**` and
    `[label](https://url)`. Leave `share.domain`, `dont.stamp` and
-   `standards.example.stamp` alone.
+   `definition.word` alone: "slop" is the site's word, never translate it.
+   `standards.example.stamp` does get translated, pick whatever short word
+   your language uses for "fine, that'll do".
 4. **Run `npm run check` and `npm run build`**, look at `/{code}/`, open a pull
    request. A missing key, or a `meta.lang` that does not match the file name,
    fails the build on purpose.
