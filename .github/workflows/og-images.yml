@@ -1,0 +1,43 @@
+name: Regenerate OG images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/content/i18n/**"
+      - "tools/generate-og-images.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  og-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+
+      - name: Install Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - run: npm ci
+
+      - name: Generate OG images
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+        run: npm run og-images
+
+      - name: Commit regenerated images
+        run: |
+          if ! git diff --quiet -- public/og; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add public/og
+            git commit -m "Regenerate OG images [skip ci]"
+            git push
+          fi

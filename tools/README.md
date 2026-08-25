@@ -6,7 +6,13 @@ marker face, in the accent green, on the page background. `BaseLayout.astro`
 points `og:image` at the file matching the page's own locale, so a link to `/`
 shares the English hero and a link to `/fr/` shares the French one.
 
-Regenerate after editing a `hero.h1` or adding a language:
+[.github/workflows/og-images.yml](../.github/workflows/og-images.yml) runs this
+on every push to `main` that touches `src/content/i18n/**`, and commits the
+result back if the images changed. A translation PR does not need to include
+`public/og/`; it gets generated once the PR lands.
+
+To run it yourself (to preview before merging, or if you don't want to wait for
+CI):
 
 ```sh
 npm run og-images

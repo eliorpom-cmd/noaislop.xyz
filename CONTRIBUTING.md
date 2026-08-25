@@ -18,7 +18,9 @@ anything you send is released under [CC0](LICENSE) too.
    request. A missing key, or a `meta.lang` that does not match the file name,
    fails the build on purpose.
 
-No component, no route, no config to touch.
+No component, no route, no config to touch. No need to generate the social
+share image either: CI builds it from `hero.h1` once the PR lands. See
+[tools/README.md](tools/README.md).
 
 ## Writing rules
 
