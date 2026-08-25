@@ -1,5 +1,6 @@
 {
   "name": "noaislop.xyz",
+  "description": "A single page you send to someone who just published AI slop.",
   "type": "module",
   "version": "0.0.1",
   "engines": {
