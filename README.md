@@ -69,8 +69,8 @@ smuggle markup into the page.
 
 ## Analytics
 
-The page loads [Umami](https://umami.is) Cloud, which counts page views and
-referrers. No cookie, no fingerprint, no personal data, nothing to consent to.
+The page loads [Umami](https://umami.is), self-hosted at `stats.byelior.dev`,
+which counts page views and referrers. No cookie, no fingerprint, no personal data, nothing to consent to.
 It is the one third-party request the page makes.
 
 The tag lives in `src/layouts/BaseLayout.astro`. Delete those four lines and the

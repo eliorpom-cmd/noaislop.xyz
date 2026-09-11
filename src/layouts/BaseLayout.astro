@@ -61,12 +61,12 @@ const isCanonicalPage = locale === DEFAULT_LOCALE;
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content={copy.meta.ogImageAlt} />
 
-    <!-- Umami Cloud: page views only, no cookie, no personal data. Drop this
-         line and the site tracks nothing at all. -->
+    <!-- Umami, self-hosted at stats.byelior.dev: page views only, no cookie,
+         no personal data. Drop this line and the site tracks nothing at all. -->
     <script
       is:inline
       defer
-      src="https://cloud.umami.is/script.js"
+      src="https://stats.byelior.dev/p.js"
       data-website-id="23362f42-f810-473d-8131-4c246dfd51c4"></script>
 
     {
